@@ -1,8 +1,8 @@
 {
-  "name": "my-react-app",
+  "name": "health",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://turbomatrixxxl.github.io/my-react-app/",
+  "homepage": "https://turbomatrixxxl.github.io/Health_Individual_Project_React/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
