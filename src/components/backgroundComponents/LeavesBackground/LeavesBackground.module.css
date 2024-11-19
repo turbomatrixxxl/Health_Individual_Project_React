@@ -1,0 +1,59 @@
+.cont {
+    display: none;
+}
+
+.secondary {
+    display: none;
+}
+
+.ternary {
+    display: none;
+}
+
+@media screen and (width >=768px) {
+    .cont {
+        background: url('../../../images/Leaves.jpg') lightgray 50% / cover no-repeat;
+        display: flex;
+        width: 428px;
+        height: 602px;
+        transform: rotate(90deg);
+        flex-shrink: 0;
+        margin: 662px -233px -169px 399px;
+
+    }
+
+    .secondary {
+        background: url('../../../images/Leaves.jpg') lightgray 50% / cover no-repeat;
+        display: flex;
+        width: 531px;
+        height: 602px;
+        transform: rotate(90deg);
+        flex-shrink: 0;
+        margin: 662px -233px -169px 399px;
+
+    }
+
+    .ternary {
+        background: url('../../../images/Leaves.jpg') lightgray 50% / cover no-repeat;
+        display: flex;
+        width: 740px;
+        height: 842px;
+        flex-shrink: 0;
+        margin: -97px -12px -279px 16px;
+    }
+}
+
+@media screen and (width >=1024px) {
+    .cont {
+        width: 746px;
+        height: 846px;
+        margin: -26px -30px -195px 339px;
+
+    }
+
+    .secondary {
+        width: 740px;
+        height: 842px;
+        margin: 35px -235px -27px 775px;
+    }
+}

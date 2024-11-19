@@ -1,0 +1,63 @@
+@import '../../../styles/variables.css';
+
+.button {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  width: 182px;
+  height: 44px;
+  flex-shrink: 1;
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  padding: 13px 0;
+
+  text-align: center;
+  font-family: Verdana;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.56px;
+
+  /* Button shadow */
+  box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
+  transition: scale 250ms ease-in-out, box-shadow 250ms ease-in-out,
+    background-color 250ms ease-in-out;
+}
+
+.button:hover,
+.button:focus {
+  scale: 0.99;
+  box-shadow: rgba(0, 0, 0, 0.5) 3px 5px 8px 3px;
+  background-color: var(--brand-color);
+  color: white;
+}
+
+.coloredButton {
+  background-color: var(--brand-color);
+  color: var(--white, #fbfbfb);
+}
+
+.whiteButton {
+  background-color: #fcfcfc;
+  border: 1px solid var(--brand-color);
+  color: var(--brand-color);
+}
+
+.plusButton {
+  border-radius: 50%;
+  border: 1px solid var(--brand-color);
+  color: var(--brand-color);
+
+  flex-shrink: 0;
+  height: 48px;
+  width: 48px;
+}
+
+/* @media screen and (width >=768px) {
+  .button {
+    width: 300px;
+  }
+} */

@@ -1,0 +1,73 @@
+@import "../../styles/variables.css";
+
+.header {
+  background: #FFF;
+  border-bottom: 2px solid #E0E0E0;
+  display: flex;
+  height: 80px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 20px;
+  width: -webkit-fill-available;
+}
+
+.logoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logoContainer img {
+  width: 17.106px;
+  height: 17.106px;
+}
+
+.logoContainer span {
+  color: #fbfbfb;
+  font-size: 12.84px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.userContainer {
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.6);
+
+  gap: 12px;
+}
+
+.userContainer p {
+  text-align: right;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+@media screen and (width >=768px) {
+  .header {
+    height: 80px;
+    padding: 0 32px;
+    padding-top: 20px;
+  }
+
+  .logoContainer img {
+    width: 23.489px;
+    height: 22.468px;
+  }
+
+  .logoContainer span {
+    font-size: 17.097px;
+  }
+}
+
+@media screen and (width >=1024px) {
+  .header {
+    padding: 0 16px;
+    padding-top: 80px;
+  }
+}

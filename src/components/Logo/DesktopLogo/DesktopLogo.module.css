@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  background: url('../../../images/logo-image.jpg') lightgray 50% / cover
+    no-repeat;
+  width: 46px;
+  height: 44px;
+  flex-shrink: 0;
+}
+
+@media screen and (width >= 768px) {
+  .container {
+    width: 46.667px;
+    height: 44px;
+  }
+}
+
+@media screen and (width >= 1024px) {
+  .container {
+    width: 70.25px;
+    height: 66px;
+  }
+}

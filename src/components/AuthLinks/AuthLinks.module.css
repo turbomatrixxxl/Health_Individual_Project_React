@@ -1,0 +1,43 @@
+@import '../../styles/variables.css';
+
+.container {
+    display: flex;
+}
+
+.container>span {
+    color: var(--Gray-5);
+    display: none;
+    width: 2px;
+    height: 32px;
+    margin-top: auto;
+}
+
+.nav {
+    display: flex;
+    gap: 14px;
+}
+
+/* .auth:active{
+    color:#212121  
+} */
+
+.auth:not(.active):hover {
+    color: var(--brand-color);
+}
+
+
+@media screen and (width >=768px) {
+    .nav {
+        gap: 24px;
+    }
+}
+
+@media screen and (width >=1024px) {
+    .container {
+        gap: 20px;
+    }
+
+    .container span {
+        display: block;
+    }
+}

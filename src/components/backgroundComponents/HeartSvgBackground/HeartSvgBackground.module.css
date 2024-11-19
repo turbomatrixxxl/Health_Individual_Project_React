@@ -1,0 +1,21 @@
+.cont {
+    height: fit-content;
+    width: fit-content;
+}
+
+.svg {
+    fill: #F0F1F3;
+}
+
+
+@media screen and (width >=768px) {
+    .cont {
+        margin: 461px -32px -187px 247px;
+    }
+}
+
+@media screen and (width >=1024px) {
+    .cont {
+        margin: auto 0 0 auto;
+    }
+}

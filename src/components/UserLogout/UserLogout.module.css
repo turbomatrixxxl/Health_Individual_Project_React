@@ -1,0 +1,214 @@
+@import "../../styles/variables.css";
+
+.cont {
+    align-items: center;
+    background: #EFF1F3;
+    display: flex;
+    gap: 16px;
+    height: 40px;
+    justify-content: flex-end;
+    padding: 15px 20px;
+}
+
+.cont>p {
+    display: flex;
+    color: var(--black-text-color);
+    font-family: Verdana;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.56px;
+}
+
+.cont>svg {
+    display: flex;
+    flex-shrink: 0;
+    stroke-width: 2px;
+    stroke: var(--Gray-5);
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 100;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(34, 13, 91, 0.23);
+
+    backdrop-filter: blur(3.5px);
+}
+
+.modal .isOpen {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.35s ease-in-out;
+}
+
+.modalBg {
+    max-width: fit-content;
+    /* form effects */
+    box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
+
+    background: linear-gradient(0deg,
+            rgba(83, 61, 186, 1) 0%,
+            rgba(80, 48, 154, 1) 43.14%,
+            rgba(106, 70, 165, 1) 73.27%,
+            rgba(133, 93, 175, 1) 120.03%);
+    width: 100%;
+
+    height: auto;
+    /* border-radius: 8px; */
+
+    box-sizing: border-box;
+}
+
+.allContainer {
+    display: flex;
+    flex-flow: column;
+    height: fit-content;
+    width: 100%;
+}
+
+.modalLogoutActionCenter {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    /* width: 100%; */
+}
+
+.closeButton {
+    display: none;
+}
+
+.modalHeader {
+    z-index: 10000;
+    height: 60px;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 12px 20px 11.51px 20px;
+    width: -webkit-fill-available;
+}
+
+.logoHeaderContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logoHeaderContainer img {
+    width: 17.106px;
+    height: 17.106px;
+}
+
+.logoHeaderContainer span {
+    color: #fbfbfb;
+    font-size: 12.84px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.userContainer {
+    display: flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.6);
+
+    gap: 12px;
+}
+
+.userContainer p {
+    display: flex;
+    color: var(--black-text-color);
+    font-family: Verdana;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.56px;
+}
+
+.userContainer>span {
+    display: flex;
+    color: var(--Gray-5);
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.logoContainer {
+    display: none;
+}
+
+.question {
+    color: #fff;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    margin-bottom: 40px;
+    margin-top: 239px;
+
+    width: 214px;
+}
+
+.modalButtonsContainer {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .modal {
+        /* padding-top: 79px; */
+        backdrop-filter: blur(0);
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .cont {
+        background: white;
+        width: fit-content;
+    }
+
+    .modalLogoutActionCenter {
+        padding: 60px 117px;
+        ;
+    }
+
+    .logo {
+        align-items: center;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        padding-bottom: 10px;
+    }
+
+    .logo h1 {
+        color: var(--Gray-5);
+        font-size: 30px;
+        font-weight: 700;
+    }
+
+    .question {
+        margin-top: 50px;
+    }
+}
