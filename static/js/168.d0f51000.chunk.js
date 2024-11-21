@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkhealth=self.webpackChunkhealth||[]).push([[168],{168:(e,a,h)=>{h.r(a),h.d(a,{default:()=>t});h(43);var r=h(579);function t(){return(0,r.jsx)("div",{children:"DiaryPage"})}}}]);
+//# sourceMappingURL=168.d0f51000.chunk.js.map
