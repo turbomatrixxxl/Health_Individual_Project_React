@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import "../../styles/variables.css";
 
 .notfoundSection {
   background: wheat;
   position: relative;
-  height: 100vh;
+  height: 100%;
 }
 
 .notfoundSection .notfound {
@@ -37,7 +38,7 @@
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
-  background: url('../../images/register-bg-d.jpg') no-repeat;
+  background: var(--brand-color);
   background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: cover;
@@ -70,7 +71,7 @@
   font-size: 14px;
   text-decoration: none;
   text-transform: uppercase;
-  background: #0046d5;
+  background: #264061;
   display: inline-block;
   padding: 15px 30px;
   border-radius: 40px;

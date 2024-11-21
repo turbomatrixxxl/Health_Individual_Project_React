@@ -35,7 +35,7 @@ export default function AuthLinks() {
 
                 <StyledLink
                     className={styles.auth}
-                    to={"/registration"}>Registration
+                    to={"/register"}>Registration
                 </StyledLink>
             </nav>
         </div>

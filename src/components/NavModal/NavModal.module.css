@@ -1,0 +1,107 @@
+@import "../../styles/variables.css";
+
+.insideContent {
+    height: 100%;
+    width: 100%;
+}
+
+.leftCont {
+    align-items: center;
+    display: flex;
+    gap: 8px;
+}
+
+.rightCont {
+    align-items: center;
+    display: flex;
+    gap: 8px;
+}
+
+/* 
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 100;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(34, 13, 91, 0.23);
+
+    backdrop-filter: blur(3.5px);
+}
+
+.modal .isOpen {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.35s ease-in-out;
+} */
+
+.modalLogoutActionCenter {
+    align-items: center;
+    background: #264061;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    height: 100%;
+    padding: 60px;
+    width: 100%;
+
+}
+
+.closeButton {
+    display: none;
+}
+
+.modalHeader {
+    z-index: 10000;
+    height: 60px;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 12px 20px 11.51px 20px;
+    width: -webkit-fill-available;
+}
+
+.logoHeaderContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modalButtonsContainer {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+}
+
+/* .link {
+    color: white;
+    text-align: center;
+    font-family: Verdana;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.72px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.link:active {
+    color: var(--gray-text-color);
+} */
+
+@media screen and (width >=768px) {
+    .modalLogoutActionCenter {
+        padding: 100px;
+    }
+}

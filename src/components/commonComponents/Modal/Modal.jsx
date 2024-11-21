@@ -49,8 +49,12 @@ Modal.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string,
   value: PropTypes.string,
-  children: PropTypes.element,
-  modalContentClassName: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.string,
+    PropTypes.object,
+    PropTypes.array,
+  ]), modalContentClassName: PropTypes.string,
   closeButton: PropTypes.string,
 };
 

@@ -1,0 +1,76 @@
+@import '../../styles/variables.css';
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.inputIcon {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  color: var(--gray-text-color);
+  font-size: 18px;
+}
+
+.inputError {
+  margin: 2px 0 0 0;
+  color: var(--brand-color);
+}
+
+.eyeIcon {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: var(--gray-text-color);
+  font-size: 24px;
+}
+
+.error {
+  color: #ff4d4d;
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.buttonsContainer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.navLink {
+  color: #623f8b;
+  text-align: center;
+  text-decoration: none;
+}
+
+.navLink:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+@media screen and (width >=768px) {
+  .form {
+    align-items: flex-start;
+    gap: 52px;
+  }
+
+  .buttonsContainer {
+    flex-direction: row;
+    gap: 32px;
+  }
+}

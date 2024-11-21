@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { useMediaQuery } from "react-responsive";
-
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom"; // Import Link
 import { logOut } from "../../redux/auth/operationsAuth";
 import { useAuth } from "../../hooks/useAuth";
 
@@ -22,6 +22,8 @@ export default function UserLogout() {
     const { isLoggedIn, user } = useAuth();
     const [isLogoutModalVisible, toggleIsLogoutModalVisible] = useToggle(false);
     const modalRef = useRef();
+    console.log(user);
+
 
     const dispatch = useDispatch();
 
@@ -30,7 +32,6 @@ export default function UserLogout() {
     };
 
     useEffect(() => {
-        // Disable scroll when modal is visible
         if (isLogoutModalVisible) {
             document.body.classList.add(styles.noScroll);
         } else {
@@ -44,13 +45,13 @@ export default function UserLogout() {
         document.addEventListener("keydown", handleEscapeKey);
 
         return () => {
-            document.body.classList.remove(styles.noScroll); // Ensure cleanup
+            document.body.classList.remove(styles.noScroll);
             document.removeEventListener("keydown", handleEscapeKey);
         };
     }, [isLogoutModalVisible, toggleIsLogoutModalVisible]);
 
     const closeOnClickOutside = (event) => {
-        if (event.target === event.currentTarget) {
+        if (event.target !== event.currentTarget) {
             toggleIsLogoutModalVisible();
         }
     };
@@ -58,16 +59,13 @@ export default function UserLogout() {
     const isMobile = useMediaQuery({ query: breakpoints.mobile });
     const isTablet = useMediaQuery({ query: breakpoints.tablet });
 
-
-    // if (!isLoggedIn) return null; // Prevent rendering if the user is not logged in
+    if (!isLoggedIn) return null;
 
     return (
         <>
             <div className={styles.cont}>
-                <p>{user ? user.username : "User"}</p>
-                <svg xmlns="http://www.w3.org/2000/svg" width="2" height="32" viewBox="0 0 2 32" fill="none">
-                    <path d="M1 0L0.999999 32" stroke="#E0E0E0" stroke-width="2" />
-                </svg>
+                <p>{user ? user.name : "User"}</p>
+                <span>|</span>
                 <LogoutButton handleLogoutModal={toggleIsLogoutModalVisible} />
             </div>
 
@@ -87,31 +85,36 @@ export default function UserLogout() {
                                 <header className={styles.modalHeader}>
                                     <Logo className={styles.logoHeaderContainer} />
                                     <div className={styles.userContainer}>
-                                        <p>{user ? user.username : "User"}</p>
+                                        <p>{user ? user.name : "User"}</p>
                                         <span>|</span>
                                         <LogoutButton handleLogoutModal={toggleIsLogoutModalVisible} />
                                     </div>
                                 </header>
                             )}
                             <div className={styles.modalLogoutActionCenter}>
-                                {isTablet && <div className={styles.logo}>
-                                    <h1>Health</h1>
-                                    <Logo className={styles.logoHeaderContainer} />
-                                </div>}
+                                {isTablet && (
+                                    <div className={styles.logo}>
+                                        <h1>Health</h1>
+                                        <Logo className={styles.logoHeaderContainer} />
+                                    </div>
+                                )}
                                 <p className={styles.question}>
                                     Are you sure you want to log out?
                                 </p>
                                 <div className={styles.modalButtonsContainer}>
-                                    <Button
-                                        handleClick={() => {
-                                            toggleIsLogoutModalVisible();
-                                            handleLogout();
-                                        }}
-                                        type="button"
-                                        variant="colored"
-                                    >
-                                        Logout
-                                    </Button>
+                                    {/* Link to "/" on Logout */}
+                                    <Link className={styles.link} to="/">
+                                        <Button
+                                            handleClick={() => {
+                                                toggleIsLogoutModalVisible();
+                                                handleLogout();
+                                            }}
+                                            type="button"
+                                            variant="colored"
+                                        >
+                                            Logout
+                                        </Button>
+                                    </Link>
                                     <Button
                                         handleClick={toggleIsLogoutModalVisible}
                                         type="button"

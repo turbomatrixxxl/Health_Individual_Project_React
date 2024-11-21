@@ -1,8 +1,13 @@
 @import "../../styles/variables.css";
 
+.link {
+    text-decoration: none;
+}
+
 .cont {
     align-items: center;
     background: #EFF1F3;
+    border-bottom: 2px solid #E0E0E0;
     display: flex;
     gap: 16px;
     height: 40px;
@@ -21,58 +26,11 @@
     letter-spacing: 0.56px;
 }
 
-.cont>svg {
+.cont>span {
     display: flex;
     flex-shrink: 0;
-    stroke-width: 2px;
-    stroke: var(--Gray-5);
-}
-
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100%;
-    z-index: 100;
-    overflow: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(34, 13, 91, 0.23);
-
-    backdrop-filter: blur(3.5px);
-}
-
-.modal .isOpen {
-    opacity: 1;
-    transform: scale(1);
-    transition: all 0.35s ease-in-out;
-}
-
-.modalBg {
-    max-width: fit-content;
-    /* form effects */
-    box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
-
-    background: linear-gradient(0deg,
-            rgba(83, 61, 186, 1) 0%,
-            rgba(80, 48, 154, 1) 43.14%,
-            rgba(106, 70, 165, 1) 73.27%,
-            rgba(133, 93, 175, 1) 120.03%);
-    width: 100%;
-
-    height: auto;
-    /* border-radius: 8px; */
-
-    box-sizing: border-box;
-}
-
-.allContainer {
-    display: flex;
-    flex-flow: column;
-    height: fit-content;
-    width: 100%;
+    font-size: 32px;
+    color: var(--Gray-5);
 }
 
 .modalLogoutActionCenter {
@@ -103,11 +61,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.logoHeaderContainer img {
-    width: 17.106px;
-    height: 17.106px;
 }
 
 .logoHeaderContainer span {
@@ -144,9 +97,6 @@
     font-weight: 500;
 }
 
-.logoContainer {
-    display: none;
-}
 
 .question {
     color: #fff;
@@ -172,24 +122,16 @@
     width: 100%;
 }
 
-@media screen and (max-width: 768px) {
-    .modal {
-        /* padding-top: 79px; */
-        backdrop-filter: blur(0);
-        display: flex;
-        flex-direction: column;
-    }
-}
-
 @media screen and (min-width: 768px) {
     .cont {
         background: white;
         width: fit-content;
+        border: none;
     }
 
     .modalLogoutActionCenter {
         padding: 60px 117px;
-        ;
+        background: white;
     }
 
     .logo {
@@ -210,5 +152,6 @@
 
     .question {
         margin-top: 50px;
+        color: var(--brand-color);
     }
 }

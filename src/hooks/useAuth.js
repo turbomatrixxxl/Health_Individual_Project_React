@@ -6,6 +6,8 @@ import {
   selectError,
   selectIsRefreshing,
   selectIsLoading,
+  selectIsisRegistered,
+  selectIsemailResendStatus
 } from "../redux/auth/selectorsAuth";
 
 export const useAuth = () => {
@@ -15,6 +17,10 @@ export const useAuth = () => {
   const errorAuth = useSelector(selectError);
   const isRefreshing = useSelector(selectIsRefreshing);
   const isLoadingAuth = useSelector(selectIsLoading);
+  const isRegistered = useSelector(selectIsisRegistered);
+  const emailResendStatus = useSelector(selectIsemailResendStatus);
+
+
 
   return {
     tokenAuth,
@@ -23,5 +29,7 @@ export const useAuth = () => {
     errorAuth,
     isRefreshing,
     isLoadingAuth,
+    isRegistered,
+    emailResendStatus,
   };
 };

@@ -1,0 +1,40 @@
+@import '../../styles/variables.css';
+
+.section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    padding: 40px 20px 0;
+}
+
+.title {
+    color: var(--brand-color);
+    display: flex;
+    font-family: Verdana;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    justify-content: center;
+    line-height: normal;
+    letter-spacing: 0.56px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+@media screen and (width >=768px) {
+    .section {
+        padding: 20px 32px 0;
+        gap: 55px;
+    }
+
+    .title {
+        justify-content: flex-start;
+    }
+}
+
+@media screen and (width >=1024px) {
+    .section {
+        gap: 15px;
+    }
+}

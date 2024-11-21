@@ -1,44 +1,93 @@
-import React from "react";
-import Button from "./components/commonComponents/Button";
+import React, { useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
+import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import SharedLayout from "./components/SharedLayout/SharedLayout";
+import { useDispatch } from "react-redux";
+import { refreshUser } from "./redux/auth/operationsAuth"; // Import refreshUser
+import { useAuth } from "./hooks/useAuth"; // Import custom hook
+
 import Loader from "./components/commonComponents/Loader";
-import Logo from "./components/Logo/Logo";
-import Modal from "./components/commonComponents/Modal/Modal";
-import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
-import AuthLinks from './components/AuthLinks/AuthLinks.jsx'
-import HeartSvgBackground from './components/backgroundComponents/HeartSvgBackground/HeartSvgBackground.jsx'
-import LeavesBackground from './components/backgroundComponents/LeavesBackground/LeavesBackground.jsx'
-import BananaBackground from './components/backgroundComponents/BananaBackground/BananaBackground.jsx'
-import StrawberryBackground from './components/backgroundComponents/StrawberryBackground/StrawberryBackground.jsx'
-import LogoutButton from './components/LogoutButton/LogoutButton.jsx'
-import Header from "./components/Header/Header.jsx";
-import UserLogout from "./components/UserLogout/UserLogout.jsx";
+import VerifyEmailPage from "./pages/VerifyEmailPageComponent/VerifyEmailPageComponent";
 
 import "./App.css";
 
+// Lazy-loaded pages
+const LazyCalculatorPage = React.lazy(() => import("./pages/CalculatorPage/CalculatorPage"));
+const LazyDiaryPage = React.lazy(() => import("./pages/DiaryPage/DiaryPage"));
+const LazyHomePage = React.lazy(() => import("./pages/HomePage/HomePage"));
+const LazyLoginPage = React.lazy(() => import("./pages/LoginPage/LoginPage"));
+const LazyRegistrationPage = React.lazy(() => import("./pages/RegisterPage/RegisterPage"));
+
 function App() {
+  const { isLoggedIn, isRefreshing } = useAuth(); // Check user verification status
+  const dispatch = useDispatch(); // To dispatch actions
+
+  // Dispatch refreshUser when the app starts (or when page is refreshed)
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      dispatch(refreshUser());
+    }
+  }, [dispatch]);
+
+  if (isRefreshing) {
+    return <Loader />; // Loader while checking refresh status
+  }
+
   return (
-    // eslint-disable-next-line react/react-in-jsx-scope
-    <div className="App">
-      <Button>Login</Button>
-      <Button variant="colored">Login</Button>
-      <Button>Register</Button>
-      <Button variant="colored">Register</Button>
-      <Button>Start losing weight</Button>
-      <Button variant="colored">Start losing weight</Button>
-      <Button variant="plusButton">+</Button>
-      <LogoutButton />
-      <Loader />
-      <Header />
-      <Logo />
-      <AuthLinks />
-      <Modal />
-      <NotFoundPage />
-      <HeartSvgBackground />
-      <LeavesBackground />
-      <BananaBackground />
-      <StrawberryBackground />
-      <UserLogout />
-    </div>
+    <React.Suspense fallback={<Loader />}>
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          {/* Public Routes */}
+          <Route
+            index
+            element={isLoggedIn ? (
+              <LazyCalculatorPage />
+            ) : (
+              <LazyHomePage />
+            )}
+          />
+
+          {/* Login & Registration Routes */}
+          <Route
+            path="register"
+            element={
+              <RestrictedRoute
+                redirectTo={"verify-email"}
+                component={<LazyRegistrationPage />}
+              />
+            }
+          />
+
+          <Route
+            path="login"
+            element={
+              isLoggedIn ? <LazyCalculatorPage /> : <LazyLoginPage />
+            }
+          />
+
+          {/* Email Verification */}
+          <Route
+            path="verify-email"
+            element={<VerifyEmailPage />}
+          />
+
+          {/* Private Routes */}
+          <Route
+            path="calculator"
+            element={<PrivateRoute component={<LazyCalculatorPage />} redirectTo="/verify-email" />}
+          />
+
+          <Route
+            path="diary"
+            element={<PrivateRoute component={<LazyDiaryPage />} redirectTo="/verify-email" />}
+          />
+
+          {/* Catch-All */}
+          <Route path="*" element={<LazyHomePage />} />
+        </Route>
+      </Routes>
+    </React.Suspense>
   );
 }
 

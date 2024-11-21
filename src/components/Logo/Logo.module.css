@@ -13,7 +13,7 @@
   margin-left: -10px;
 }
 
-@media screen and (width >= 768px) {
+@media screen and (width >=768px) {
   .slimMom {
     display: flex;
     width: 105.301px;
@@ -23,9 +23,10 @@
   }
 }
 
-@media screen and (width >= 1024px) {
+@media screen and (width >=1024px) {
   .container {
     align-items: flex-end;
+    margin-bottom: 10.33px;
   }
 
   .slimMom {

@@ -1,4 +1,7 @@
 body {
+
+  height: 100vh;
+  display: flex;
   background: #fff;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -19,6 +22,10 @@ code {
   flex-direction: column;
   height: 100%;
   width: 100%;
+}
+
+* {
+  margin: 0;
 }
 
 /* @media screen and (width >= 768px) {

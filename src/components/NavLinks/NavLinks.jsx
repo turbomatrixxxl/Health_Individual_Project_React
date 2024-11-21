@@ -3,7 +3,7 @@ import React from 'react'
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-import styles from './AuthLinks.module.css'
+import styles from './NavLinks.module.css'
 
 const StyledLink = styled(NavLink)`
   color: #9B9FAA;
@@ -22,7 +22,7 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
-export default function AuthLinks() {
+export default function NavLinks() {
 
     return (
         <div className={styles.container}>

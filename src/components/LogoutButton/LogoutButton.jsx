@@ -24,8 +24,4 @@ LogoutButton.propTypes = {
   handleLogoutModal: PropTypes.func,
 };
 
-LogoutButton.defaultProps = {
-  handleLogoutModal: () => console.warn("Logout button clicked, but no handler provided."),
-};
-
 export default LogoutButton;

@@ -1,0 +1,113 @@
+/* Shared styling for the background container */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    /* Ensure a clean white background */
+    overflow: hidden;
+    /* Prevent elements from overflowing */
+    z-index: -5;
+    /* Push the background elements behind other content */
+}
+
+/* Leaves styles */
+.leavesOriginal,
+.leavesRotated {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 20%;
+    height: auto;
+    background-image: url('../../images/Leaves-746-846.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.8;
+    z-index: 0;
+    /* Behind other elements */
+}
+
+/* Rotated version of the leaves */
+.leavesRotated {
+    top: 10%;
+    left: 25%;
+    transform: rotate(90deg);
+    /* Rotate 90 degrees clockwise */
+    transform-origin: center;
+}
+
+/* Banana styles */
+.banana {
+    position: absolute;
+    top: 20%;
+    right: 0%;
+    width: 15%;
+    height: auto;
+    background-image: url('../../images/Banana.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 1;
+    /* Above the leaves */
+}
+
+/* Strawberry styles */
+.strawberry {
+    position: absolute;
+    bottom: 20%;
+    right: 10%;
+    width: 15%;
+    height: auto;
+    background-image: url('../../images/Strawberry-Big-PNG.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 1;
+    /* Above the leaves */
+}
+
+/* Gray SVG (Half-heart shape) */
+.svg {
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+    width: 50%;
+    /* Half of the viewport width */
+    height: auto;
+    background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="603" height="816" viewBox="0 0 603 816" fill="none"><path d="M206 259C51.6 271.8 6 403.667 1.5 468C-8.1 648.4 119.167 775.167 185 816H603V-0.000244141C603 -0.000244141 574.5 24.4998 570 68.9997C533 262 534.5 291 467.5 300.5C400.5 310 316 249.881 206 259Z" fill="%23F0F1F3"/></svg>');
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 1;
+    /* Fully visible */
+    z-index: 2;
+    /* Above everything else */
+}
+
+@media screen and (max-width: 1024px) {
+    /* .background { */
+    /* Tablet-specific adjustments */
+    /* } */
+
+    .banana {
+        top: 25%;
+        /* Adjust for smaller screen */
+        right: 5%;
+        /* Reduce offset */
+        width: 12%;
+        /* Slightly smaller */
+    }
+
+    .strawberry {
+        bottom: 25%;
+        /* Adjust position */
+        right: 15%;
+        /* Reduce offset */
+        width: 12%;
+        /* Slightly smaller */
+    }
+
+    .svg {
+        width: 40%;
+        /* Slightly smaller */
+    }
+}

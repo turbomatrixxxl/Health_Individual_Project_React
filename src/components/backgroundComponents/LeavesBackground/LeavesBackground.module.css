@@ -12,14 +12,18 @@
 
 @media screen and (width >=768px) {
     .cont {
-        background: url('../../../images/Leaves.jpg') lightgray 50% / cover no-repeat;
+        position: absolute;
+        background: url('../../../images/Leaves-small.jpg') lightgray 50% / cover no-repeat;
+        border: none;
+        outline: none;
         display: flex;
-        width: 428px;
-        height: 602px;
-        transform: rotate(90deg);
+        /* width: 428px; */
+        height: -webkit-fill-available;
+        /* transform: rotate(90deg); */
         flex-shrink: 0;
-        margin: 662px -233px -169px 399px;
-
+        background-position: center;
+        z-index: -1;
+        /* Places the background behind other content */
     }
 
     .secondary {
@@ -29,31 +33,28 @@
         height: 602px;
         transform: rotate(90deg);
         flex-shrink: 0;
-        margin: 662px -233px -169px 399px;
-
     }
 
     .ternary {
-        background: url('../../../images/Leaves.jpg') lightgray 50% / cover no-repeat;
+        position: absolute;
+        background: url('../../../images/Leaves-740-842.jpg') lightgray 50% / cover no-repeat;
         display: flex;
-        width: 740px;
-        height: 842px;
+        /* width: 100%;
+        height: 100%; */
         flex-shrink: 0;
-        margin: -97px -12px -279px 16px;
+        background-position: center;
+        z-index: -1;
+        /* Places the background behind other content */
     }
 }
 
 @media screen and (width >=1024px) {
     .cont {
         width: 746px;
-        height: 846px;
-        margin: -26px -30px -195px 339px;
-
     }
 
     .secondary {
         width: 740px;
         height: 842px;
-        margin: 35px -235px -27px 775px;
     }
 }

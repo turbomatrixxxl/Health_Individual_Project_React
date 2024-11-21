@@ -8,7 +8,7 @@ axios.defaults.baseURL = "http://localhost:5000";
 // Function to set the Authorization header and store the token in localStorage
 const setAuthHeader = (token) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-  localStorage.setItem("token", token); // Save token in localStorage
+  localStorage.setItem("token", JSON.stringify(token)); // Save token in localStorage
 };
 
 // Function to clear the Authorization header and remove the token from localStorage
@@ -23,10 +23,19 @@ export const logIn = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const response = await axios.post("/api/users/login", credentials);
-      // console.log(response.data);
 
-      setAuthHeader(response.data.token);
-      return response.data; // Return the response data (user details and token)
+      const { token, user } = response.data;
+      console.log(user);
+
+
+      if (user.verify === false) {
+        localStorage.removeItem("token");
+        // User is not verified; don't set the auth token
+        return { user, token: null }; // Return user data without setting the token
+      }
+
+      setAuthHeader(token); // Set the token only for verified users
+      return response.data; // Return user and token
     } catch (error) {
       return thunkAPI.rejectWithValue(
         error.response?.data?.message || error.message
@@ -34,17 +43,24 @@ export const logIn = createAsyncThunk(
     }
   }
 );
+
 
 // Thunk for registering
 export const register = createAsyncThunk(
-  "auth/register", // Unique string identifier for this action
+  "auth/register",
   async (credentials, thunkAPI) => {
     try {
       const response = await axios.post("/api/users/signup", credentials);
-      // console.log(response.data);
+      const { user, token } = response.data;
 
-      setAuthHeader(response.data.token);
-      return response.data; // Return the response data (user details and token)
+      // If the user is unverified, don't store the token
+      if (user.verify === false) {
+        return { user, token: null }; // Return unverified user with null token
+      }
+
+      // Set the auth token only for verified users
+      setAuthHeader(token);
+      return response.data; // Return user and token for verified users
     } catch (error) {
       return thunkAPI.rejectWithValue(
         error.response?.data?.message || error.message
@@ -53,25 +69,32 @@ export const register = createAsyncThunk(
   }
 );
 
+
 export const logOut = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
   try {
+    // Send the logout request to the server (optional, depends on your API design)
     await axios.post("/api/users/logout", {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`, // Using the current token
       },
     });
-    clearAuthHeader();
+
+    // Clear the Authorization header and token from localStorage
+    clearAuthHeader(); // Clears both the axios Authorization header and localStorage
+
+    return {}; // Optionally, you can return any data (empty here as we don't need to send any data)
   } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+    return thunkAPI.rejectWithValue(error.message); // Handle logout error
   }
 });
 
 export const refreshUser = createAsyncThunk(
   "auth/refresh",
   async (_, thunkAPI) => {
-    const token = localStorage.getItem("token");
-    if (token === null) {
-      return thunkAPI.rejectWithValue("Unable to fetch user");
+    const token = JSON.parse(localStorage.getItem("token"));
+
+    if (token === null || !token) {
+      return thunkAPI.rejectWithValue("Unable to fetch user: No token found");
     }
     try {
       setAuthHeader(token);
@@ -84,5 +107,21 @@ export const refreshUser = createAsyncThunk(
     }
   }
 );
+
+// resend verification mail
+export const resendVerificationEmail = createAsyncThunk(
+  "auth/resendVerificationEmail",
+  async (email, thunkAPI) => {
+    try {
+      const response = await axios.post("/api/users/verify", { email });
+      return response.data.message; // Return success message
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        error.response?.data?.message || error.message
+      );
+    }
+  }
+);
+
 
 

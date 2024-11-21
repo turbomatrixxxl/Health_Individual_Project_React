@@ -1,0 +1,58 @@
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo span {
+    text-transform: capitalize;
+    color: rgba(251, 251, 251, 1);
+    font-weight: 400;
+}
+
+/*Variant: navbarLogo => Logo placed in navbar */
+/* .navbarLogo img {
+    width: 17.11px;
+    height: 17.11px;
+} */
+
+.navbarLogo span {
+    font-size: 12.84px;
+    line-height: 19.26px;
+}
+
+@media screen and (min-width: 768px) {
+    .navbarLogo img {
+        width: 50px;
+        height: 507px;
+    }
+
+    .navbarLogo span {
+        font-size: 17.1px;
+        line-height: 25.65px;
+    }
+}
+
+/*Variant: formLogo => Logo placed in form (auth or log out) */
+.formLogo img {
+    width: 50px;
+    height: 50px;
+}
+
+.formLogo span {
+    font-size: 19.11px;
+    line-height: 28.67px;
+}
+
+@media screen and (min-width: 768px) {
+    .formLogo svg {
+        width: 35.95px;
+        height: 35.97px;
+    }
+
+    .formLogo span {
+        font-size: 26.96px;
+        line-height: 40.44px;
+    }
+}
