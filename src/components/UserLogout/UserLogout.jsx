@@ -59,7 +59,7 @@ export default function UserLogout() {
     const isMobile = useMediaQuery({ query: breakpoints.mobile });
     const isTablet = useMediaQuery({ query: breakpoints.tablet });
 
-    if (!isLoggedIn) return null;
+    if (!isLoggedIn) { return null };
 
     return (
         <>
