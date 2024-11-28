@@ -164,12 +164,11 @@
 
 @media screen and (min-width: 1024px) {
     .cont {
-        align-items: end;
-        padding: 0;
-        /* padding-right: 16px; */
-        background: transparent;
-        height: -webkit-fill-available;
+        align-items: baseline;
+        background: #0000;
+        /* height: -webkit-fill-available; */
         margin-left: auto;
+        padding: 0;
     }
 
 }

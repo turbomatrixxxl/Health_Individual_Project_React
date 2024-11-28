@@ -158,6 +158,8 @@
     .statisticSuperCont {
         flex-direction: column;
         gap: 60px;
+        flex-grow: 1;
+        height: -webkit-fill-available;
     }
 
     .notRecommendedCont {
