@@ -7,7 +7,8 @@ import {
   selectIsRefreshing,
   selectIsLoading,
   selectIsisRegistered,
-  selectIsemailResendStatus
+  selectIsemailResendStatus,
+  selectIsLoggedOut,
 } from "../redux/auth/selectorsAuth";
 
 export const useAuth = () => {
@@ -19,6 +20,7 @@ export const useAuth = () => {
   const isLoadingAuth = useSelector(selectIsLoading);
   const isRegistered = useSelector(selectIsisRegistered);
   const emailResendStatus = useSelector(selectIsemailResendStatus);
+  const isLoggedOut = useSelector(selectIsLoggedOut);
 
 
 
@@ -31,5 +33,6 @@ export const useAuth = () => {
     isLoadingAuth,
     isRegistered,
     emailResendStatus,
+    isLoggedOut,
   };
 };

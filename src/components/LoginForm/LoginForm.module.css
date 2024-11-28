@@ -36,11 +36,21 @@
   font-size: 24px;
 }
 
+.errorCont {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+
 .error {
-  color: #ff4d4d;
+  color: var(--brand-color);
   margin-top: 10px;
   font-size: 14px;
+  font-weight: 500;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .buttonsContainer {
@@ -52,15 +62,8 @@
   margin-top: 20px;
 }
 
-.navLink {
-  color: #623f8b;
-  text-align: center;
+a {
   text-decoration: none;
-}
-
-.navLink:hover {
-  text-decoration: underline;
-  color: white;
 }
 
 @media screen and (width >=768px) {
@@ -72,5 +75,13 @@
   .buttonsContainer {
     flex-direction: row;
     gap: 32px;
+  }
+
+  .errorCont {
+    align-items: flex-start;
+  }
+
+  .error {
+    font-size: 20px;
   }
 }

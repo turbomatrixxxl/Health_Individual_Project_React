@@ -1,5 +1,4 @@
 .cont {
-    position: relative;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -7,35 +6,37 @@
 }
 
 .content {
-    position: relative;
     display: flex;
     flex-direction: column;
     flex: 1;
-    height: 100%;
-    width: 100%;
 }
 
 .main {
-    position: relative;
     flex-grow: 1;
-    width: 100%;
+    background: transparent;
 }
 
 
-/* @media screen and (width >=768px) {
-    .leaves {
-        top: 110px;
-        left: 0;
-        bottom: -20px;
-        right: 0;
-    }
-} */
+@media screen and (width >=768px) {
+    .notLoggedIn {
+        background: url('../../images/Slim-Mom-Tablet.png') white 50% / cover no-repeat;
+        border: none;
+        outline: none;
+        display: flex !important;
+        flex-shrink: 0;
+        background-position: bottom right;
+        background-size: 60% 85%;
+        /* Width and height as percentages of the container */
 
-/* @media screen and (width >=1024px) {
-    .leaves {
-        top: -26px;
-        left: 339px;
-        bottom: 30px;
-        right: 195px;
+        /* z-index: -1; */
+        /* Places the background behind other content */
     }
-} */
+}
+
+@media screen and (width >=1024px) {
+    .notLoggedIn {
+        background: url('../../images/Slim-Mom-Desktop.png') white 50% / cover no-repeat;
+        background-position: bottom right;
+        background-size: 60% 100%;
+    }
+}

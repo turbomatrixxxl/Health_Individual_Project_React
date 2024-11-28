@@ -1,35 +1,64 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 // import { useMediaQuery } from "react-responsive";
 
 import { Outlet } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-// import { useAuth } from "../../hooks/useAuth";
-// import Loader from "../commonComponents/Loader";
+import { useAuth } from "../../hooks/useAuth";
+import { usePrivate } from "../../hooks/usePrivate";
+
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import clsx from "clsx";
 
 import styles from './SharedLayout.module.css';
 
-// const Background = lazy(() => import("../Background/Background"));
 
 function SharedLayout() {
-  // const { isLoggedIn } = useAuth();
+  const { isLoggedIn, errorAuth, isLoggedOut } = useAuth();
+  const { message, error } = usePrivate()
 
-  // Check for tablet or larger screens
-  // const isLargeScreen = useMediaQuery({ query: "(min-width: 768px)" });
+  const [toastShown, setToastShown] = useState(false);
+  const [logoutShown, setLogoutShown] = useState(false);
+
+
+
+  useEffect(() => {
+    if (isLoggedIn && !toastShown) {
+      toast.success("Login successful!");
+      setToastShown(true); // Ensure the toast doesn't show again
+    }
+
+    if (isLoggedOut && !logoutShown) {
+      toast.success("Logout successful!");
+      setLogoutShown(true);
+    }
+
+    if (error || errorAuth) {
+      toast.error(error || errorAuth.message);
+    };
+
+    if (message) {
+      toast.success(message)
+    }
+  }, [error, message, isLoggedIn, toastShown, errorAuth])
 
   return (
     <div className={styles.cont}>
-      <div className={styles.content}>
-        {/* <Suspense fallback={<Loader />}>
-          {isLargeScreen && !isLoggedIn && <Background />}
-        </Suspense>
-        <div className={styles.svg}></div> */}
-
+      {!isLoggedIn && <div className={clsx(styles.content, styles.notLoggedIn)}>
         <Header />
         <main className={styles.main}>
           <Outlet />
         </main>
-      </div>
+      </div>}
+      {isLoggedIn && <div className={styles.content}>
+        <Header />
+        <main className={styles.main}>
+          <Outlet />
+          <ToastContainer />
+        </main>
+      </div>}
       <Footer />
     </div>
   );

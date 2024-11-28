@@ -1,0 +1,170 @@
+@import "../../styles/variables.css";
+
+.resultsCont {
+    background: #F0F1F3;
+    display: flex;
+    flex-direction: column;
+    height: 360px;
+    padding: 40px 20px 24px;
+    width: -webkit-fill-available;
+}
+
+.statisticCont {
+    display: flex;
+    flex-direction: column;
+}
+
+.resultsToday {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    color: #212121;
+    font-family: Verdana;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.56px;
+}
+
+.statisticList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 280px;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.statisticListItem {
+    display: flex;
+    justify-content: space-between;
+}
+
+.statisticListItemSpan {
+    color: #9B9FAA;
+    text-align: right;
+    font-family: Verdana;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.56px;
+}
+
+.notRecommendedCont {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.notRecommendedTitle {
+    color: #212121;
+    font-family: Verdana;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.56px;
+    margin-top: 40px;
+}
+
+.notRecommendedList {
+    display: flex;
+    flex-direction: column;
+    height: 70px;
+    list-style: none;
+    overflow-y: scroll;
+    padding: 0;
+
+    color: #9B9FAA;
+    font-family: Verdana;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.56px;
+}
+
+.notRecommendedEmpty {
+    width: 260.69px;
+    height: 64px;
+    flex-shrink: 0;
+
+
+    color: #9B9FAA;
+    font-family: Verdana;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.56px;
+}
+
+@media screen and (width >=768px) {
+    .resultsCont {
+        flex-direction: row;
+        padding: 80px 32px 0;
+        justify-content: space-between;
+        gap: 97px;
+        height: 300px;
+    }
+
+    .statisticSuperCont {
+        display: flex;
+        background: transparent;
+        gap: 97px;
+    }
+
+    .statisticList {
+        margin-top: 40px;
+    }
+
+    .notRecommendedCont {
+        gap: 40px;
+        width: fit-content;
+        background: url('../../images/Slim-Mom-down-Rotated-Logged-Tablet.png');
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .notRecommendedTitle {
+        margin-top: 0;
+    }
+
+    .notRecommendedListItem {
+        width: fit-content;
+    }
+}
+
+@media screen and (width >=1024px) {
+    .resultsCont {
+        align-items: center;
+        background: url('../../images/Slim-Mom-Left-Up-Logged-Desktop.png') lightgray 50% / cover no-repeat;
+        background-position-y: 50%;
+        background-position-x: right;
+        background-size: 80%;
+        flex-direction: column;
+        gap: 75px;
+        height: -webkit-fill-available;
+        justify-content: center;
+        padding: 40px 20px 20px;
+        padding-left: 106px;
+        width: 40%;
+    }
+
+    .statisticSuperCont {
+        flex-direction: column;
+        gap: 60px;
+    }
+
+    .notRecommendedCont {
+        background: transparent;
+    }
+
+    .notRecommendedTitle {
+        text-align: left;
+    }
+}

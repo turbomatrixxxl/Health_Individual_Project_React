@@ -32,18 +32,21 @@ function Header() {
 
   return (
     <>
-      <header className={clsx(styles.header)}>
-        <div className={styles.leftCont}>
+      <header className={clsx(styles.header, isLoggedIn && styles.loggedHeader)}>
+        <div className={clsx(styles.leftCont, !isLoggedIn && styles.loggedLeft)}>
           <Logo />
           {isLoggedIn && isMobile && <img className={styles.slimMom} src={slimMomImage} alt="Slim" />}
+          {!isLoggedIn && <AuthLinks />}
+          {isDesktop && isLoggedIn && <NavLinks />}
         </div>
-        {!isLoggedIn && <AuthLinks />}
-        {isDesktop && isLoggedIn && <NavLinks />}
         <div className={styles.rightCont}>
           {!isMobile && !isDesktop && <UserLogout />}
           {(isMobile || isTablet) && !isDesktop && isLoggedIn &&
             <NavModal />}
         </div>
+        {isLoggedIn && isDesktop && <div className={styles.rightDesktopCont}>
+          <UserLogout />
+        </div>}
       </header>
       {isMobile && <UserLogout />}
     </>

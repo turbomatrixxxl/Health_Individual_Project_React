@@ -25,9 +25,8 @@
   color: var(--gray-text-color);
 }
 
-.logoutContainer,
-.icon:hover,
-.exit:hover {
+.logoutContainer:hover .icon,
+.logoutContainer:hover .exit {
   color: var(--brand-color);
 }
 

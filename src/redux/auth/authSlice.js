@@ -9,6 +9,7 @@ const initialState = {
   isRegistered: false,
   isRefreshing: false,
   error: null,
+  isLoggedOut: true,
   emailResendStatus: null, // New state for resend email
 };
 
@@ -51,7 +52,7 @@ const authSlice = createSlice({
       .addCase(logIn.fulfilled, (state, { payload }) => {
         state.user = payload.user;
 
-        console.log(payload.user);
+        // console.log(payload.user);
 
         if (payload.user.verify === false) {
           // If not verified, clear token and prevent login
@@ -61,6 +62,7 @@ const authSlice = createSlice({
           state.token = payload.token;
           state.isLoggedIn = true;
         }
+        state.isLoggedOut = false;
         state.isRegistered = false;
         state.isLoading = false;
         state.error = null;
@@ -71,6 +73,10 @@ const authSlice = createSlice({
       .addCase(register.pending, handlePending)
       .addCase(register.fulfilled, (state, { payload }) => {
         state.user = payload.user;
+
+        if (state.user.verify) {
+          state.isLoggedOut = false;
+        }
 
         state.isRegistered = true
         state.isLoading = false;
@@ -103,6 +109,7 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.isRegistered = false;
+        state.isLoggedOut = true
       })
       .addCase(logOut.rejected, handleRejected)
 
@@ -112,14 +119,18 @@ const authSlice = createSlice({
         state.error = null;
       })
       .addCase(refreshUser.fulfilled, (state, { payload }) => {
-        state.user = payload;
+        state.user = payload.data;
+        // console.log(state.user);
+
 
         if (payload.verify === false) {
           // If not verified, ensure user is not logged in
           state.token = null;
           state.isLoggedIn = false;
+          state.isLoggedOut = true
         } else {
           state.isLoggedIn = true;
+          state.isLoggedOut = false
         }
 
         state.isRefreshing = false;

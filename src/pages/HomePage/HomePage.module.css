@@ -1,0 +1,178 @@
+@import "../../styles/variables.css";
+
+.section {
+    background: transparent;
+    display: flex;
+    height: -webkit-fill-available;
+    width: -webkit-fill-available;
+    padding: 32px 20px;
+}
+
+.mobileHeaderCont {
+    display: flex;
+    flex-direction: column;
+    width: -webkit-fill-available;
+}
+
+.modalHeader {
+    z-index: 10000;
+    height: 60px;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 12px 20px 11.51px 20px;
+    width: -webkit-fill-available;
+}
+
+
+.logoHeaderContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mobileSubHeaderCont {
+    background: #EFF1F3;
+    display: flex;
+    height: 40px;
+    border-top: 2px solid var(--Gray-5);
+}
+
+
+.modalLogoutActionCenter {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    height: -webkit-fill-available;
+    width: -webkit-fill-available;
+    background-color: white;
+}
+
+.modalLogoutActionCenter>h2 {
+    color: #212121;
+    font-family: Verdana;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%;
+    margin-bottom: 42px;
+    margin-top: 40px;
+}
+
+.calories {
+    color: #264061;
+    text-align: center;
+    font-family: Verdana;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1.92px;
+
+    align-items: baseline;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: -webkit-fill-available;
+}
+
+.calories>span {
+    display: flex;
+    align-items: flex-end;
+
+    color: #264061;
+    font-size: 16px;
+    font-style: normal;
+    letter-spacing: 0.64px;
+}
+
+.line {
+    border-top: 1px solid var(--Gray-5);
+    display: flex;
+    height: 1px;
+    margin-bottom: 20px;
+    margin-top: 32px;
+    width: -webkit-fill-available;
+}
+
+.notEat {
+    color: #212121;
+    font-family: Verdana;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.56px;
+    margin-bottom: 20px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    width: 222px;
+    height: 85px;
+    flex-shrink: 0;
+    overflow-y: scroll;
+
+    color: #9B9FAA;
+    font-family: Verdana;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.56px;
+}
+
+.link {
+    text-decoration: none;
+    margin-top: 40px;
+}
+
+.closeButton,
+.closeModal {
+    display: none;
+}
+
+.noScroll {
+    overflow: hidden;
+    /* Prevent scrolling */
+}
+
+@media screen and (width >=768px) {
+    .section {
+        padding: 20px 32px;
+
+    }
+
+    .closeModal {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    .modalLogoutActionCenter>h2 {
+        margin-bottom: 20px;
+        text-align: center;
+        width: 390px;
+    }
+
+    .line {
+        margin-bottom: 12px;
+    }
+
+    .link {
+        margin-bottom: 80px;
+    }
+}
+
+@media screen and (width >=1024px) {
+    .section {
+        padding: 0px 16px;
+        padding-top: 30px;
+
+    }
+}

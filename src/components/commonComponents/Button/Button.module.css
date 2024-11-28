@@ -40,25 +40,33 @@
   color: var(--white, #fbfbfb);
 }
 
-.whiteButton {
+.whiteButton,
+.button:disabled {
   background-color: #fcfcfc;
   border: 1px solid var(--brand-color);
   color: var(--brand-color);
+}
+
+.button:disabled {
+  cursor: not-allowed;
 }
 
 .plusButton {
   border-radius: 50%;
   border: 1px solid var(--brand-color);
   color: var(--brand-color);
-  font-size: 22px;
+  font-size: 18px;
 
   flex-shrink: 0;
-  height: 48px;
-  width: 48px;
+  height: 40px;
+  width: 40px;
 }
 
-/* @media screen and (width >=768px) {
-  .button {
-    width: 300px;
+@media screen and (width >=768px) {
+  .plusButton {
+    font-size: 22px;
+
+    height: 48px;
+    width: 48px;
   }
-} */
+}

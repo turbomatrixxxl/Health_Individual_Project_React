@@ -1,0 +1,51 @@
+@import "../../styles/variables.css";
+
+.inputsContainer {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.input {
+    align-items: center;
+    border: none;
+    border-bottom: 1px solid var(--Gray-5);
+    display: flex;
+    outline: none;
+    padding: 8px 10px;
+    padding-left: 0;
+    width: 100%;
+
+    color: var(--gray-text-color);
+    font-family: Verdana;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.56px;
+}
+
+@media screen and (min-width: 768px) {
+    .inputsContainer {
+        flex-direction: row;
+        gap: 0;
+        margin-right: auto;
+    }
+
+    .input {
+        height: 17px;
+        padding-bottom: 20px;
+    }
+
+    .name {
+        min-width: 240px;
+    }
+
+    .quantity {
+        margin-left: 24px;
+        margin-right: 87px;
+        text-align: center;
+        width: 104px;
+    }
+}

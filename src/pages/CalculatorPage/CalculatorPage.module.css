@@ -1,0 +1,45 @@
+@import "../../styles/variables.css";
+
+.section {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.calculatorCont {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 32px 20px 41px;
+}
+
+@media screen and (width >=768px) {
+    .section {
+        align-items: flex-start;
+    }
+
+    .calculatorCont {
+        padding: 60px 32px 48px;
+    }
+}
+
+@media screen and (width >=1024px) {
+    .section {
+        flex-direction: row;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .calculatorCont {
+        align-items: flex-start;
+        gap: 40px;
+        height: -webkit-fill-available;
+        padding: 0px 0px 0 16px;
+        width: 60%;
+    }
+
+    .leftCont {
+        display: flex;
+        gap: 20px;
+    }
+}

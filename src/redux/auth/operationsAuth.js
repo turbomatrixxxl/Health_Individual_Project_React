@@ -25,7 +25,7 @@ export const logIn = createAsyncThunk(
       const response = await axios.post("/api/users/login", credentials);
 
       const { token, user } = response.data;
-      console.log(user);
+      // console.log(user);
 
 
       if (user.verify === false) {

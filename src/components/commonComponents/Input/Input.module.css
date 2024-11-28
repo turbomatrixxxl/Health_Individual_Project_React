@@ -12,7 +12,7 @@
 .input {
   background: transparent;
   border: none;
-  color: var(--gray-text-color);
+  /* color: var(--gray-text-color); */
   font-family: Verdana;
   font-size: 14px;
   font-style: normal;

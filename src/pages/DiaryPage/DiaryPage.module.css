@@ -1,0 +1,315 @@
+@import "../../styles/variables.css";
+
+.closeButton,
+.closeModal {
+    display: none;
+}
+
+.mobileHeaderCont {
+    display: flex;
+    flex-direction: column;
+    width: -webkit-fill-available;
+}
+
+.modalHeader {
+    z-index: 10000;
+    height: 60px;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 12px 20px 11.51px 20px;
+    width: -webkit-fill-available;
+}
+
+.logoHeaderContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mobileSubHeaderCont {
+    background: #EFF1F3;
+    display: flex;
+    height: 40px;
+    border-top: 2px solid var(--Gray-5);
+}
+
+
+.modalLogoutActionCenter {
+    align-items: center;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    height: -webkit-fill-available;
+    padding: 80px 20px;
+    width: -webkit-fill-available;
+}
+
+.modalUserLogoutCont {
+    margin-left: auto;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.calculatorCont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+    width: -webkit-fill-available;
+}
+
+.diaryPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: -webkit-fill-available;
+}
+
+.datePicker {
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    margin: 0;
+    margin-bottom: 32px;
+    margin-right: auto;
+    margin-top: 45px;
+    width: fit-content;
+}
+
+.datePicker input {
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex: 1;
+    /* Input takes up remaining space */
+    gap: 20px;
+    height: 20px;
+    justify-content: space-between;
+    flex-shrink: 0;
+    width: calc(100% + 32px);
+    /* Example: Adjust width calculation appropriately */
+
+    color: #212121;
+    font-family: Verdana;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.datePicker input:hover {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    /* Subtle hover effect */
+    color: var(--brand-color);
+}
+
+.icon {
+    position: absolute;
+    background: white;
+    color: var(--gray-text-color);
+    cursor: pointer;
+    height: 20px;
+    pointer-events: none;
+    /* Ensure icon doesn't interfere with clicks */
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    /* z-index: 1; */
+}
+
+.productList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+    width: 100%;
+}
+
+.productRow {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.productRow>span,
+.right>span {
+    border-bottom: 1px solid var(--Gray-5);
+    display: flex;
+    height: 16px;
+    padding-bottom: 18px;
+
+    color: #212121;
+    font-family: Verdana;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.56px;
+}
+
+.right {
+    align-items: baseline;
+    display: flex;
+    gap: 8px;
+}
+
+.name {
+    min-width: 130px;
+    overflow: hidden;
+    padding-right: 3px;
+}
+
+.errorMessage {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    color: red;
+    flex-wrap: wrap;
+    font-size: 14px;
+    font-weight: 500;
+    justify-content: center;
+    margin-top: 4px;
+    text-align: center;
+}
+
+.quantity {
+    text-align: right;
+    width: 49px;
+}
+
+.calories {
+    text-align: right;
+    width: 58px;
+}
+
+.delete {
+    color: var(--gray-text-color);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    height: fit-content;
+    width: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.delete:hover {
+    color: var(--brand-color);
+    transform: scale(1.12);
+}
+
+.noProducts {
+    color: var(--brand-color);
+    font-family: Verdana;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.56px;
+    text-align: center;
+}
+
+.plusButton {
+    margin: 60px 0;
+}
+
+/* Tablet-specific styles */
+@media screen and (min-width: 768px) {
+    .errorMessage {
+        font-size: 20px;
+        margin: 0 auto;
+    }
+
+    .section {
+        align-items: flex-start;
+    }
+
+    .calculatorCont {
+        align-items: flex-start;
+        padding: 60px 32px 48px;
+        width: -webkit-fill-available;
+    }
+
+    .diaryPage {
+        gap: 60px;
+    }
+
+    .datePicker {
+        margin: 0;
+        margin-right: auto;
+    }
+
+    .productList {
+        height: 270px;
+        margin-right: auto;
+        overflow-y: auto;
+        padding-right: 15px;
+        width: 85%;
+    }
+
+    .productRow {
+        gap: 22px;
+    }
+
+    .right {
+        gap: 46px;
+    }
+
+    .productRow>span,
+    .right>span {
+        padding-bottom: 20px;
+    }
+
+    .right>span {
+        justify-content: end;
+    }
+
+    .delete {
+        /* height: 100%;/ */
+        margin-left: -14px;
+    }
+
+    .noProducts {
+        font-size: 20px;
+    }
+}
+
+/* Desktop-specific styles */
+@media screen and (min-width: 1024px) {
+    .section {
+        flex-direction: row;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .calculatorCont {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 40px;
+        height: -webkit-fill-available;
+        padding: 0 0 0 16px;
+        width: 60%;
+    }
+
+    .leftCont {
+        display: flex;
+        gap: 20px;
+    }
+
+    .diaryPage {
+        gap: 40px;
+    }
+}

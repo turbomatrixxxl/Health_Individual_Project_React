@@ -22,7 +22,7 @@ export default function UserLogout() {
     const { isLoggedIn, user } = useAuth();
     const [isLogoutModalVisible, toggleIsLogoutModalVisible] = useToggle(false);
     const modalRef = useRef();
-    console.log(user);
+    // console.log(user);
 
 
     const dispatch = useDispatch();
@@ -64,7 +64,7 @@ export default function UserLogout() {
     return (
         <>
             <div className={styles.cont}>
-                <p>{user ? user.name : "User"}</p>
+                <p>{user ? user.username ?? user.name : "User"}</p>
                 <span>|</span>
                 <LogoutButton handleLogoutModal={toggleIsLogoutModalVisible} />
             </div>
@@ -85,7 +85,7 @@ export default function UserLogout() {
                                 <header className={styles.modalHeader}>
                                     <Logo className={styles.logoHeaderContainer} />
                                     <div className={styles.userContainer}>
-                                        <p>{user ? user.name : "User"}</p>
+                                        <p>{user ? user.username ?? user.name : "User"}</p>
                                         <span>|</span>
                                         <LogoutButton handleLogoutModal={toggleIsLogoutModalVisible} />
                                     </div>

@@ -8,6 +8,9 @@ import Button from "../commonComponents/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
 import useToggle from "../../hooks/useToggle";
 import useFormValidation from "../../hooks/useFormValidation";
@@ -15,6 +18,7 @@ import validateLogin from "../../hooks/validateLogin";
 import useFormTouched from "../../hooks/useFormTouched";
 
 import { useAuth } from "../../hooks/useAuth";
+import clsx from "clsx";
 
 import styles from "./LoginForm.module.css";
 
@@ -27,7 +31,7 @@ function LoginForm() {
     validateLogin
   );
 
-  const { user } = useAuth()
+  const { user, isLoggedIn } = useAuth()
 
   const { touched, handleBlur } = useFormTouched(fields);
 
@@ -44,7 +48,8 @@ function LoginForm() {
     if (!validateFields()) return;
 
     try {
-      await dispatch(logIn(fields)).unwrap();
+      await dispatch(logIn(fields))
+        .unwrap()
     } catch (error) {
       setFields((prevFields) => ({
         ...prevFields,
@@ -52,6 +57,7 @@ function LoginForm() {
           "You have entered an invalid username or password."
         ),
       }));
+      toast.error("Email or password wrong ! Please try again !");
     }
   };
 
@@ -130,9 +136,7 @@ function LoginForm() {
         </div>
         <div className={styles.buttonsContainer}>
           <Button variant="colored" type="submit">
-            <Link to={user?.verify ? "/" : "/verify-email"} className={styles.navLink}>
-              Log in
-            </Link>
+            Log in
           </Button>
 
           {errorMessage && <p className={styles.error}>{errorMessage}</p>}
@@ -142,7 +146,21 @@ function LoginForm() {
               Register
             </Link>{" "}
           </Button>
+
+
+
+          {errorMessage && <p className={styles.error}>{errorMessage}</p>}
+
+          <ToastContainer />
         </div>
+        {(user !== null && !isLoggedIn) && ((<div className={styles.errorCont}>
+          <p className={styles.error}>It seems that your email is not verified! Please click the Verify button to be redirected to verify email page !
+          </p><Button>
+            <Link to="/verify-email" className={clsx(styles.navLink, styles.link)}>
+              Verify
+            </Link>
+          </Button>
+        </div>))}
       </form>
     </>
   );
