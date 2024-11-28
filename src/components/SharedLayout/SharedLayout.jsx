@@ -42,7 +42,7 @@ function SharedLayout() {
     if (message) {
       toast.success(message)
     }
-  }, [error, message, isLoggedIn, toastShown, errorAuth])
+  }, [error, message, isLoggedIn, toastShown, errorAuth, isLoggedOut, logoutShown])
 
   return (
     <div className={styles.cont}>
