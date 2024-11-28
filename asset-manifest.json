@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Health_Individual_Project_React/static/css/main.a026a40e.css",
-    "main.js": "/Health_Individual_Project_React/static/js/main.7fe5d74b.js",
+    "main.css": "/Health_Individual_Project_React/static/css/main.5204b4de.css",
+    "main.js": "/Health_Individual_Project_React/static/js/main.c8866bf2.js",
     "static/css/330.7a54bcb6.chunk.css": "/Health_Individual_Project_React/static/css/330.7a54bcb6.chunk.css",
     "static/js/330.542ddabb.chunk.js": "/Health_Individual_Project_React/static/js/330.542ddabb.chunk.js",
     "static/css/948.12289886.chunk.css": "/Health_Individual_Project_React/static/css/948.12289886.chunk.css",
@@ -15,13 +15,13 @@
     "static/js/453.0334da83.chunk.js": "/Health_Individual_Project_React/static/js/453.0334da83.chunk.js",
     "static/js/659.7d9f9a63.chunk.js": "/Health_Individual_Project_React/static/js/659.7d9f9a63.chunk.js",
     "static/js/200.489b4976.chunk.js": "/Health_Individual_Project_React/static/js/200.489b4976.chunk.js",
-    "static/css/968.f2ec36e0.chunk.css": "/Health_Individual_Project_React/static/css/968.f2ec36e0.chunk.css",
+    "static/css/968.9684867a.chunk.css": "/Health_Individual_Project_React/static/css/968.9684867a.chunk.css",
     "static/media/Slim-Mom-Desktop.png": "/Health_Individual_Project_React/static/media/Slim-Mom-Desktop.564081392be1cf34ad1e.png",
     "static/media/Slim-Mom-Tablet.png": "/Health_Individual_Project_React/static/media/Slim-Mom-Tablet.56b324fbc95cb332ac24.png",
     "static/media/Radu.webp": "/Health_Individual_Project_React/static/media/Radu.81d208868a8e3740db5e.webp",
     "index.html": "/Health_Individual_Project_React/index.html",
-    "main.a026a40e.css.map": "/Health_Individual_Project_React/static/css/main.a026a40e.css.map",
-    "main.7fe5d74b.js.map": "/Health_Individual_Project_React/static/js/main.7fe5d74b.js.map",
+    "main.5204b4de.css.map": "/Health_Individual_Project_React/static/css/main.5204b4de.css.map",
+    "main.c8866bf2.js.map": "/Health_Individual_Project_React/static/js/main.c8866bf2.js.map",
     "330.7a54bcb6.chunk.css.map": "/Health_Individual_Project_React/static/css/330.7a54bcb6.chunk.css.map",
     "330.542ddabb.chunk.js.map": "/Health_Individual_Project_React/static/js/330.542ddabb.chunk.js.map",
     "948.12289886.chunk.css.map": "/Health_Individual_Project_React/static/css/948.12289886.chunk.css.map",
@@ -35,10 +35,10 @@
     "453.0334da83.chunk.js.map": "/Health_Individual_Project_React/static/js/453.0334da83.chunk.js.map",
     "659.7d9f9a63.chunk.js.map": "/Health_Individual_Project_React/static/js/659.7d9f9a63.chunk.js.map",
     "200.489b4976.chunk.js.map": "/Health_Individual_Project_React/static/js/200.489b4976.chunk.js.map",
-    "968.f2ec36e0.chunk.css.map": "/Health_Individual_Project_React/static/css/968.f2ec36e0.chunk.css.map"
+    "968.9684867a.chunk.css.map": "/Health_Individual_Project_React/static/css/968.9684867a.chunk.css.map"
   },
   "entrypoints": [
-    "static/css/main.a026a40e.css",
-    "static/js/main.7fe5d74b.js"
+    "static/css/main.5204b4de.css",
+    "static/js/main.c8866bf2.js"
   ]
 }
