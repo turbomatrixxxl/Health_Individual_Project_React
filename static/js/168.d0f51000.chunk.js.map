@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/168.d0f51000.chunk.js","mappings":"+IAEe,SAASA,IACpB,OACIC,EAAAA,EAAAA,KAAA,OAAAC,SAAK,aAEb,C","sources":["pages/DiaryPage/DiaryPage.jsx"],"sourcesContent":["import React from 'react'\n\nexport default function DiaryPage() {\n    return (\n        <div>DiaryPage</div>\n    )\n}\n"],"names":["DiaryPage","_jsx","children"],"sourceRoot":""}

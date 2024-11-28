@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkhealth=self.webpackChunkhealth||[]).push([[431],{431:(e,s,a)=>{a.r(s),a.d(s,{default:()=>n});a(43);var t=a(216);const c={};var h=a(579);function n(){return"/home"===(0,t.zy)().pathname?(0,h.jsx)(t.C5,{to:"/home/calculator"}):(0,h.jsxs)("section",{className:c.section,children:["HomePage",(0,h.jsx)(t.sv,{})]})}}}]);
-//# sourceMappingURL=431.58ff9571.chunk.js.map
