@@ -13,7 +13,7 @@ import { usePrivate } from "../../hooks/usePrivate";
 import { useAuth } from "../../hooks/useAuth";
 
 import styles from "./WeightLossForm.module.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { logOut } from "../../redux/auth/operationsAuth";
 import { useDispatch } from "react-redux";
 
@@ -34,8 +34,6 @@ export default function WeightLossForm({ onSubmit, handleClick }) {
 
     const thisDispatch = useDispatch()
     const navigate = useNavigate();
-
-
 
     // Initialize form state with default values
     useEffect(() => {
@@ -62,9 +60,10 @@ export default function WeightLossForm({ onSubmit, handleClick }) {
 
     useEffect(() => {
         if (error === "Not authorized") {
-            setTimeout(() => navigate("/login"), 2000); // Auto-redirect after 2 seconds
+            setTimeout(() => thisDispatch(logOut), 500); // Auto-redirect after 2 seconds
+            setTimeout(() => navigate("/login"), 1000); // Auto-redirect after 2 seconds
         }
-    }, [error, navigate]);
+    }, [error, navigate, thisDispatch]);
 
     // console.log(formData);
 
@@ -98,7 +97,6 @@ export default function WeightLossForm({ onSubmit, handleClick }) {
 
     const handleLogout = () => {
         thisDispatch(logOut())
-        setTimeout(() => { navigate("/login") }, 500);
     }
 
     const height = !isLoggedIn ? formData.height : privateFormData.height
@@ -116,9 +114,11 @@ export default function WeightLossForm({ onSubmit, handleClick }) {
                 <p>
                     Your authorisation has expired please retry to :
                 </p>
-                <Button onClick={handleLogout}>
-                    Login
-                </Button>
+                <Link to={"/login"}>
+                    <Button onClick={handleLogout}>
+                        Login
+                    </Button>
+                </Link>
             </div> : isError}
             </div>}
 

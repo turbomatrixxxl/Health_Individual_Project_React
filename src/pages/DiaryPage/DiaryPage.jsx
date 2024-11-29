@@ -13,15 +13,16 @@ import NavLinks from "../../components/NavLinks/NavLinks";
 
 import { FiCalendar } from "react-icons/fi";
 
-import styles from "./DiaryPage.module.css";
 import DiaryAddForm from "../../components/DiaryAddForm/DiaryAddForm";
 import Button from "../../components/commonComponents/Button";
 import { logOut } from "../../redux/auth/operationsAuth";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useToggle from "../../hooks/useToggle";
 import Modal from "../../components/commonComponents/Modal/Modal";
 import UserLogout from "../../components/UserLogout/UserLogout";
+
+import styles from "./DiaryPage.module.css";
 
 const breakpoints = {
     mobile: "(max-width: 767px)",
@@ -62,6 +63,13 @@ export default function DiaryPage() {
         };
     }, [isDiaryMobileModalVisible, toggleisDiaryMobileModalVisible]);
 
+    useEffect(() => {
+        if (error === "Not authorized") {
+            setTimeout(() => thisDispatch(logOut), 500); // Auto-redirect after 2 seconds
+            setTimeout(() => navigate("/login"), 1000); // Auto-redirect after 2 seconds
+        }
+    }, [error, navigate, thisDispatch]);
+
     function handleOpenModal() {
         toggleisDiaryMobileModalVisible()
     }
@@ -85,12 +93,6 @@ export default function DiaryPage() {
 
         privateDispatch(fetchConsumedProductsForSpecificDay({ date: date }))
     }, [privateDispatch, date]);
-
-    useEffect(() => {
-        if (error === "Not authorized") {
-            setTimeout(() => navigate("/login"), 2000); // Auto-redirect after 2 seconds
-        }
-    }, [error, navigate]);
 
     const allProducts = Array.isArray(products.data) ? products.data.flat() : [];
     const filteredProducts = allProducts.filter((product) =>
@@ -150,7 +152,7 @@ export default function DiaryPage() {
 
     const handleLogout = () => {
         thisDispatch(logOut())
-        setTimeout(() => { navigate("/login") }, 500);
+        setTimeout(() => { navigate("/login") }, 50);
     }
 
     function formatToDisplayDate(date) {
@@ -228,9 +230,11 @@ export default function DiaryPage() {
                     <p>
                         Your authorisation has expired please retry to :
                     </p>
-                    <Button onClick={handleLogout} className={styles.link} to={'/login'}>
-                        Login
-                    </Button>
+                    <Link to={'/login'}>
+                        <Button onClick={handleLogout}>
+                            Login
+                        </Button>
+                    </Link>
                 </div> : error}
                 </div>}
 
