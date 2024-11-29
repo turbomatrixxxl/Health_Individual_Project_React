@@ -17,7 +17,7 @@ root.render(
           v7_startTransition: true,
           v7_relativeSplatPath: true
         }}
-        basename="/"
+        basename="/Health_Individual_Project_React"
       >
         <App />
       </BrowserRouter>
