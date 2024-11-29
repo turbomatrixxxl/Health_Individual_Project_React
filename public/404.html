@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -10,7 +10,7 @@
     </script>
   </head>
   <body></body>
-</html>
+</html> -->
 
 <!-- <!DOCTYPE html>
 <html lang="en">
@@ -25,3 +25,22 @@
   </head>
   <body></body>
 </html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting...</title>
+    <script>
+      // Redirect all unknown paths to the React app's entry point (index.html)
+      const redirectTo = window.location.pathname
+        ? "/Health_Individual_Project_React" + window.location.pathname
+        : "/Health_Individual_Project_React";
+      window.location.href = redirectTo;
+    </script>
+  </head>
+  <body>
+    <h1>Redirecting...</h1>
+  </body>
+</html>
