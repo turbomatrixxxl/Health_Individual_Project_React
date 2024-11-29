@@ -237,7 +237,7 @@ function RegisterForm() {
             Log in
           </Button>
         </Link>{" "}
-        <ToastContainer />
+        <ToastContainer position="top-center" autoClose={5000} />
       </div>
     </form>
   );
