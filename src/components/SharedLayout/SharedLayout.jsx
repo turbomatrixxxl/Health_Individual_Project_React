@@ -16,8 +16,8 @@ import styles from './SharedLayout.module.css';
 
 
 function SharedLayout() {
-  const { isLoggedIn, errorAuth, isLoggedOut, isRegistered } = useAuth();
-  const { message, error } = usePrivate()
+  const { isLoggedIn, isLoggedOut, isRegistered } = useAuth();
+  const { message } = usePrivate()
 
   const [toastShown, setToastShown] = useState(false);
   const [logoutShown, setLogoutShown] = useState(false);
@@ -44,11 +44,11 @@ function SharedLayout() {
     }
   }, [isLoggedOut, logoutShown]);
 
-  useEffect(() => {
-    if (error) {
-      toast.error(error);
-    }
-  }, [error, errorAuth]);
+  // useEffect(() => {
+  //   if (error) {
+  //     toast.error(error);
+  //   }
+  // }, [error]);
 
   useEffect(() => {
     if (message) {
@@ -56,16 +56,16 @@ function SharedLayout() {
     }
   }, [message]);
 
-  console.log({
-    isLoggedIn: isLoggedIn,
-    toastShown: toastShown,
-    logoutShown: logoutShown,
-    isLoggedOut: isLoggedOut,
-    error: error,
-    errorAuth: errorAuth,
-    message: message,
-    isRegistered: isRegistered,
-  });
+  // console.log({
+  //   isLoggedIn: isLoggedIn,
+  //   toastShown: toastShown,
+  //   logoutShown: logoutShown,
+  //   isLoggedOut: isLoggedOut,
+  //   error: error,
+  //   errorAuth: errorAuth,
+  //   message: message,
+  //   isRegistered: isRegistered,
+  // });
 
 
 

@@ -87,12 +87,8 @@ const authSlice = createSlice({
 
       // Log Out
       .addCase(logOut.pending, handlePending)
-      .addCase(logOut.fulfilled, (state, { payload }) => {
+      .addCase(logOut.fulfilled, (state) => {
         const token = JSON.parse(localStorage.getItem("token"))
-        const { message, data } = payload
-
-        console.log("Logout slice message:", message);
-        console.log("Logout slice data:", data);
 
         if (token) {
           localStorage.setItem("token", null)

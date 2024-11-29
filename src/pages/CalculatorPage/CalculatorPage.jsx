@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useMediaQuery } from "react-responsive";
 
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Calculator from '../../components/Calculator/Calculator';
 import { useDispatch } from 'react-redux';
 
@@ -12,6 +12,9 @@ import NavLinks from '../../components/NavLinks/NavLinks';
 
 import LoginStatistics from '../../components/LoginStatistics/LoginStatistics';
 import { usePrivate } from '../../hooks/usePrivate';
+
+import { logOut } from '../../redux/auth/operationsAuth';
+import { useAuth } from '../../hooks/useAuth';
 
 import styles from './CalculatorPage.module.css'
 
@@ -24,10 +27,13 @@ const breakpoints = {
 export default function CalculatorPage() {
     useLocation();
 
+    const { isLoggedIn } = useAuth()
+    const { error, privateDispatch } = usePrivate()
+
     const isDesktop = useMediaQuery({ query: breakpoints.desktop });
 
-    const { privateDispatch } = usePrivate();
-    const dispatch = useDispatch();
+    const thisDispatch = useDispatch()
+    const navigate = useNavigate();
 
     const today = getFormattedDate()
 
@@ -35,8 +41,20 @@ export default function CalculatorPage() {
         const today = getFormattedDate(); // Ensure the correct format YYYY-MM-DD
         // console.log("Fetching data for date:", today);
 
-        dispatch(fetchConsumedProductsForSpecificDay({ date: today })); // Pass as an object
-    }, [dispatch]);
+        privateDispatch(fetchConsumedProductsForSpecificDay({ date: today })); // Pass as an object
+    }, [privateDispatch]);
+
+    useEffect(() => {
+        if (error === "Not authorized") {
+            const timeout = setTimeout(() => {
+                thisDispatch(logOut());
+                navigate("/login");
+            }, 5000);
+
+            return () => clearTimeout(timeout); // Cleanup timeout
+        }
+    }, [error, isLoggedIn, thisDispatch, navigate]);
+
 
     function getFormattedDate() {
         const today = new Date();
@@ -47,7 +65,7 @@ export default function CalculatorPage() {
     }
 
     const handleClick = () => {
-        dispatch(fetchConsumedProductsForSpecificDay({ date: today })); // Pass as an object
+        privateDispatch(fetchConsumedProductsForSpecificDay({ date: today })); // Pass as an object
         // dispatch(refreshUser())
     }
 
@@ -56,7 +74,7 @@ export default function CalculatorPage() {
 
     // Function to handle form submission
     const handleSubmit = (formData) => {
-        dispatch(fetchPrivateCalculationData(formData));
+        privateDispatch(fetchPrivateCalculationData(formData));
     };
 
     function formatToDisplayDate(date) {
@@ -70,8 +88,17 @@ export default function CalculatorPage() {
         }, 1000); // Delay of 500ms
     };
 
+
+
     return (
         <section className={styles.section}>
+            {(error || !isLoggedIn) && <div className={styles.errorMessage}>{(error === 'Not authorized') ? <div className={styles.errorMessage}>
+                <p>
+                    For reasons of personal data security Your authorisation has expired ! We will shortely redirect You to your login page. If you want to continue pleas login again ! Thank You for understanding !
+                </p>
+            </div> : error}
+            </div>}
+
             <div className={styles.calculatorCont}>
                 {isDesktop && (<div className={styles.leftCont}>
                     <Logo />

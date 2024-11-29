@@ -13,6 +13,20 @@
     padding: 32px 20px 41px;
 }
 
+.errorMessage {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    color: red;
+    flex-wrap: wrap;
+    font-size: 14px;
+    font-weight: 500;
+    justify-content: center;
+    margin-top: 4px;
+    text-align: center;
+}
+
 @media screen and (width >=768px) {
     .section {
         align-items: flex-start;

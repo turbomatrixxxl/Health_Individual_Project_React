@@ -8,9 +8,6 @@ import Button from "../commonComponents/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
 import useToggle from "../../hooks/useToggle";
 import useFormValidation from "../../hooks/useFormValidation";
@@ -57,7 +54,6 @@ function LoginForm() {
           "You have entered an invalid username or password."
         ),
       }));
-      toast.error("Email or password wrong ! Please try again !");
     }
   };
 

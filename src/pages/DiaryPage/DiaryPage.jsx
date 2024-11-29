@@ -65,15 +65,15 @@ export default function DiaryPage() {
 
     useEffect(() => {
         if (error === "Not authorized") {
-            setTimeout(() => thisDispatch(logOut()), 3000);
-        }
-    }, [error, thisDispatch]);
+            const timeout = setTimeout(() => {
+                thisDispatch(logOut());
+                navigate("/login");
+            }, 5000);
 
-    useEffect(() => {
-        if (error === "Not authorized") {
-            setTimeout(() => navigate("/login"), 5000);
+            return () => clearTimeout(timeout); // Cleanup timeout
         }
-    }, [error, navigate]);
+    }, [error, thisDispatch, navigate]);
+
 
     function handleOpenModal() {
         toggleisDiaryMobileModalVisible()

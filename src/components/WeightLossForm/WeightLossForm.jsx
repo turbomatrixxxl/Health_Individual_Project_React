@@ -12,10 +12,6 @@ import { usePrivate } from "../../hooks/usePrivate";
 
 import { useAuth } from "../../hooks/useAuth";
 
-import { useNavigate } from "react-router-dom";
-import { logOut } from "../../redux/auth/operationsAuth";
-import { useDispatch } from "react-redux";
-
 import styles from "./WeightLossForm.module.css";
 
 const bloodTypeOptions = [
@@ -26,15 +22,12 @@ const bloodTypeOptions = [
 ];
 
 export default function WeightLossForm({ onSubmit, handleClick }) {
-    const { formData = {}, isLoading, errorPublic, dispatch } = usePublic();
-    const { privateFormData = {}, privateLoading, error, privateDispatch } = usePrivate()
+    const { formData = {}, isLoading, dispatch } = usePublic();
+    const { privateFormData = {}, privateLoading, privateDispatch } = usePrivate()
     const { isLoggedIn } = useAuth()
     // console.log(isLoggedIn);
     // console.log(privateLoading);
     // console.log(privateFormData);
-
-    const thisDispatch = useDispatch()
-    const navigate = useNavigate();
 
     // Initialize form state with default values
     useEffect(() => {
@@ -58,18 +51,6 @@ export default function WeightLossForm({ onSubmit, handleClick }) {
             }
         });
     }, [dispatch, privateDispatch, formData, privateFormData, isLoggedIn]);
-
-    useEffect(() => {
-        if (error === "Not authorized") {
-            setTimeout(() => thisDispatch(logOut()), 3000);
-        }
-    }, [error, thisDispatch]);
-
-    useEffect(() => {
-        if (error === "Not authorized") {
-            setTimeout(() => navigate("/login"), 5000);
-        }
-    }, [error, navigate]);
 
     // console.log(formData);
 
@@ -107,17 +88,11 @@ export default function WeightLossForm({ onSubmit, handleClick }) {
     const desiredWeight = !isLoggedIn ? formData.desiredWeight : privateFormData.desiredWeight
     const bloodGroupIndex = !isLoggedIn ? formData.bloodGroupIndex : privateFormData.bloodGroupIndex
     const loading = !isLoggedIn ? isLoading : privateLoading
-    const isError = !isLoggedIn ? errorPublic : error
 
 
     return (
         <form onSubmit={handleSubmit} className={styles.form}>
-            {isError && <div className={styles.errorMessage}>{(isError === 'Not authorized') ? <div className={styles.errorMessage}>
-                <p>
-                    For reasons of personal data security Your authorisation has expired ! We will shortely redirect You to your login page. If you want to continue pleas login again ! Thank You for understanding !
-                </p>
-            </div> : isError}
-            </div>}
+
 
             <div className={styles.formMainCont}>
                 {/* Left Section */}
