@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Health_Individual_Project_React/static/css/main.5204b4de.css",
-    "main.js": "/Health_Individual_Project_React/static/js/main.13271ed7.js",
+    "main.js": "/Health_Individual_Project_React/static/js/main.ec2f31cf.js",
     "static/css/330.d345d922.chunk.css": "/Health_Individual_Project_React/static/css/330.d345d922.chunk.css",
     "static/js/330.69d8eb5b.chunk.js": "/Health_Individual_Project_React/static/js/330.69d8eb5b.chunk.js",
     "static/css/948.f8221ad9.chunk.css": "/Health_Individual_Project_React/static/css/948.f8221ad9.chunk.css",
@@ -21,7 +21,7 @@
     "static/media/Radu.webp": "/Health_Individual_Project_React/static/media/Radu.81d208868a8e3740db5e.webp",
     "index.html": "/Health_Individual_Project_React/index.html",
     "main.5204b4de.css.map": "/Health_Individual_Project_React/static/css/main.5204b4de.css.map",
-    "main.13271ed7.js.map": "/Health_Individual_Project_React/static/js/main.13271ed7.js.map",
+    "main.ec2f31cf.js.map": "/Health_Individual_Project_React/static/js/main.ec2f31cf.js.map",
     "330.d345d922.chunk.css.map": "/Health_Individual_Project_React/static/css/330.d345d922.chunk.css.map",
     "330.69d8eb5b.chunk.js.map": "/Health_Individual_Project_React/static/js/330.69d8eb5b.chunk.js.map",
     "948.f8221ad9.chunk.css.map": "/Health_Individual_Project_React/static/css/948.f8221ad9.chunk.css.map",
@@ -39,6 +39,6 @@
   },
   "entrypoints": [
     "static/css/main.5204b4de.css",
-    "static/js/main.13271ed7.js"
+    "static/js/main.ec2f31cf.js"
   ]
 }
