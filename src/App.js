@@ -9,6 +9,7 @@ import { useAuth } from "./hooks/useAuth"; // Import custom hook
 
 import Loader from "./components/commonComponents/Loader";
 import VerifyEmailPage from "./pages/VerifyEmailPageComponent/VerifyEmailPageComponent";
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage'
 
 import "./App.css";
 
@@ -84,7 +85,7 @@ function App() {
           />
 
           {/* Catch-All */}
-          <Route path="*" element={<LazyHomePage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </React.Suspense>

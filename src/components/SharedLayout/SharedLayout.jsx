@@ -38,7 +38,7 @@ function SharedLayout() {
 
   useEffect(() => {
     if (isLoggedOut && !logoutShown) {
-      toast.success("Logout successful!");
+      toast.success("You are not Logged in!");
       setLogoutShown(true);
       setToastShown(false);
     }

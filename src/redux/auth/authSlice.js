@@ -9,7 +9,7 @@ const initialState = {
   isRegistered: false,
   isRefreshing: false,
   error: null,
-  isLoggedOut: true,
+  isLoggedOut: false,
   emailResendStatus: null, // New state for resend email
 };
 

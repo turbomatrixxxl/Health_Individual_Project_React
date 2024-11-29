@@ -107,3 +107,17 @@
     font-size: 20px;
   }
 }
+
+@media only screen and (min-width: 767px) {
+  .notfoundSection {
+    background: transparent;
+  }
+
+  .notfound .notfound-404 h1 {
+    font-size: 230px;
+  }
+
+  .notfound .notfound-404 {
+    height: 250px;
+  }
+}
