@@ -8,7 +8,7 @@ import Button from "../commonComponents/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
@@ -151,7 +151,6 @@ function LoginForm() {
 
           {errorMessage && <p className={styles.error}>{errorMessage}</p>}
 
-          <ToastContainer />
         </div>
         {(user !== null && !isLoggedIn) && ((<div className={styles.errorCont}>
           <p className={styles.error}>It seems that your email is not verified! Please click the Verify button to be redirected to verify email page !
