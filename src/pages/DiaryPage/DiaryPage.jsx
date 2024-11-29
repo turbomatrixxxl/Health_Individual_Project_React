@@ -17,7 +17,7 @@ import DiaryAddForm from "../../components/DiaryAddForm/DiaryAddForm";
 import Button from "../../components/commonComponents/Button";
 import { logOut } from "../../redux/auth/operationsAuth";
 import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useToggle from "../../hooks/useToggle";
 import Modal from "../../components/commonComponents/Modal/Modal";
 import UserLogout from "../../components/UserLogout/UserLogout";

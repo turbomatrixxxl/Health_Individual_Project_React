@@ -12,7 +12,7 @@ import { usePrivate } from "../../hooks/usePrivate";
 
 import { useAuth } from "../../hooks/useAuth";
 
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { logOut } from "../../redux/auth/operationsAuth";
 import { useDispatch } from "react-redux";
 
