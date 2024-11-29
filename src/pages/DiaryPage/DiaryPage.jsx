@@ -228,7 +228,7 @@ export default function DiaryPage() {
 
                 {error && <div className={styles.errorMessage}>{(error === 'Not authorized') ? <div className={styles.errorMessage}>
                     <p>
-                        For reasons of personal data security Your authorisation has expired ! We will shortely redirect You to your login page. If you want to continue pleas login again ! Thank You for understanding !
+                        For reasons of personal data security Your authorisation has expired ! We will shortly redirect You to your login page. If you want to continue Please Login again ! Thank You for understanding !
                     </p>
                 </div> : error}
                 </div>}
