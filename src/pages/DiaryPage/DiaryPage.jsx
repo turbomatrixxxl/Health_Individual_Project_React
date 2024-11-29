@@ -65,10 +65,15 @@ export default function DiaryPage() {
 
     useEffect(() => {
         if (error === "Not authorized") {
-            setTimeout(() => thisDispatch(logOut), 500); // Auto-redirect after 2 seconds
-            setTimeout(() => navigate("/login"), 1000); // Auto-redirect after 2 seconds
+            setTimeout(() => thisDispatch(logOut()), 3000);
         }
-    }, [error, navigate, thisDispatch]);
+    }, [error, thisDispatch]);
+
+    useEffect(() => {
+        if (error === "Not authorized") {
+            setTimeout(() => navigate("/login"), 5000);
+        }
+    }, [error, navigate]);
 
     function handleOpenModal() {
         toggleisDiaryMobileModalVisible()
@@ -150,11 +155,6 @@ export default function DiaryPage() {
         }, 1000); // Delay of 500ms
     };
 
-    const handleLogout = () => {
-        thisDispatch(logOut())
-        setTimeout(() => { navigate("/login") }, 50);
-    }
-
     function formatToDisplayDate(date) {
         const [year, month, day] = date.split("-");
         return `${day}.${month}.${year}`;
@@ -228,13 +228,8 @@ export default function DiaryPage() {
 
                 {error && <div className={styles.errorMessage}>{(error === 'Not authorized') ? <div className={styles.errorMessage}>
                     <p>
-                        Your authorisation has expired please retry to :
+                        For reasons of personal data security Your authorisation has expired ! We will shortely redirect You to your login page. If you want to continue pleas login again ! Thank You for understanding !
                     </p>
-                    <Link to={'/login'}>
-                        <Button onClick={handleLogout}>
-                            Login
-                        </Button>
-                    </Link>
                 </div> : error}
                 </div>}
 

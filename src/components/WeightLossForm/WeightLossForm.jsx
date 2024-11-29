@@ -12,10 +12,11 @@ import { usePrivate } from "../../hooks/usePrivate";
 
 import { useAuth } from "../../hooks/useAuth";
 
-import styles from "./WeightLossForm.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { logOut } from "../../redux/auth/operationsAuth";
 import { useDispatch } from "react-redux";
+
+import styles from "./WeightLossForm.module.css";
 
 const bloodTypeOptions = [
     { value: "1", label: "A" },
@@ -60,10 +61,15 @@ export default function WeightLossForm({ onSubmit, handleClick }) {
 
     useEffect(() => {
         if (error === "Not authorized") {
-            setTimeout(() => thisDispatch(logOut), 500); // Auto-redirect after 2 seconds
-            setTimeout(() => navigate("/login"), 1000); // Auto-redirect after 2 seconds
+            setTimeout(() => thisDispatch(logOut()), 3000);
         }
-    }, [error, navigate, thisDispatch]);
+    }, [error, thisDispatch]);
+
+    useEffect(() => {
+        if (error === "Not authorized") {
+            setTimeout(() => navigate("/login"), 5000);
+        }
+    }, [error, navigate]);
 
     // console.log(formData);
 
@@ -95,10 +101,6 @@ export default function WeightLossForm({ onSubmit, handleClick }) {
         }
     };
 
-    const handleLogout = () => {
-        thisDispatch(logOut())
-    }
-
     const height = !isLoggedIn ? formData.height : privateFormData.height
     const age = !isLoggedIn ? formData.age : privateFormData.age
     const currentWeight = !isLoggedIn ? formData.currentWeight : privateFormData.currentWeight
@@ -112,13 +114,8 @@ export default function WeightLossForm({ onSubmit, handleClick }) {
         <form onSubmit={handleSubmit} className={styles.form}>
             {isError && <div className={styles.errorMessage}>{(isError === 'Not authorized') ? <div className={styles.errorMessage}>
                 <p>
-                    Your authorisation has expired please retry to :
+                    For reasons of personal data security Your authorisation has expired ! We will shortely redirect You to your login page. If you want to continue pleas login again ! Thank You for understanding !
                 </p>
-                <Link to={"/login"}>
-                    <Button onClick={handleLogout}>
-                        Login
-                    </Button>
-                </Link>
             </div> : isError}
             </div>}
 

@@ -56,16 +56,16 @@ function SharedLayout() {
     }
   }, [message]);
 
-  // console.log({
-  //   isLoggedIn: isLoggedIn,
-  //   toastShown: toastShown,
-  //   logoutShown: logoutShown,
-  //   isLoggedOut: isLoggedOut,
-  //   error: error,
-  //   errorAuth: errorAuth,
-  //   message: message,
-  //   isRegistered: isRegistered,
-  // });
+  console.log({
+    isLoggedIn: isLoggedIn,
+    toastShown: toastShown,
+    logoutShown: logoutShown,
+    isLoggedOut: isLoggedOut,
+    error: error,
+    errorAuth: errorAuth,
+    message: message,
+    isRegistered: isRegistered,
+  });
 
 
 

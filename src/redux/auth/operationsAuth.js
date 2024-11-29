@@ -73,7 +73,7 @@ export const register = createAsyncThunk(
 export const logOut = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
   try {
     // Send the logout request to the server (optional, depends on your API design)
-    await axios.post("/api/users/logout", {
+    const response = await axios.post("/api/users/logout", {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`, // Using the current token
       },
@@ -82,7 +82,7 @@ export const logOut = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
     // Clear the Authorization header and token from localStorage
     clearAuthHeader(); // Clears both the axios Authorization header and localStorage
 
-    return {}; // Optionally, you can return any data (empty here as we don't need to send any data)
+    return response.data; // Optionally, you can return any data (empty here as we don't need to send any data)
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message); // Handle logout error
   }
