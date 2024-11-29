@@ -33,11 +33,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Redirecting...</title>
     <script>
-      // Redirect all unknown paths to the React app's entry point (index.html)
-      const redirectTo = window.location.pathname
-        ? "/Health_Individual_Project_React" + window.location.pathname
-        : "/Health_Individual_Project_React";
-      window.location.href = redirectTo;
+      // Redirect unknown paths to the React app
+      var pathname = window.location.pathname.replace(
+        "/Health_Individual_Project_React",
+        ""
+      );
+      var redirectTo =
+        "/Health_Individual_Project_React/index.html" +
+        (pathname ? "#" + pathname : "");
+      window.location.replace(redirectTo);
     </script>
   </head>
   <body>
