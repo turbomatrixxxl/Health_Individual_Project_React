@@ -9,16 +9,20 @@ import { useAuth } from "./hooks/useAuth"; // Import custom hook
 
 import Loader from "./components/commonComponents/Loader";
 import VerifyEmailPage from "./pages/VerifyEmailPageComponent/VerifyEmailPageComponent";
-import NotFoundPage from './pages/NotFoundPage/NotFoundPage'
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 
 import "./App.css";
 
 // Lazy-loaded pages
-const LazyCalculatorPage = React.lazy(() => import("./pages/CalculatorPage/CalculatorPage"));
+const LazyCalculatorPage = React.lazy(() =>
+  import("./pages/CalculatorPage/CalculatorPage")
+);
 const LazyDiaryPage = React.lazy(() => import("./pages/DiaryPage/DiaryPage"));
 const LazyHomePage = React.lazy(() => import("./pages/HomePage/HomePage"));
 const LazyLoginPage = React.lazy(() => import("./pages/LoginPage/LoginPage"));
-const LazyRegistrationPage = React.lazy(() => import("./pages/RegisterPage/RegisterPage"));
+const LazyRegistrationPage = React.lazy(() =>
+  import("./pages/RegisterPage/RegisterPage")
+);
 
 function App() {
   const { isLoggedIn, isRefreshing } = useAuth(); // Check user verification status
@@ -42,11 +46,7 @@ function App() {
           {/* Public Routes */}
           <Route
             index
-            element={isLoggedIn ? (
-              <LazyCalculatorPage />
-            ) : (
-              <LazyHomePage />
-            )}
+            element={isLoggedIn ? <LazyCalculatorPage /> : <LazyHomePage />}
           />
 
           {/* Login & Registration Routes */}
@@ -62,26 +62,31 @@ function App() {
 
           <Route
             path="login"
-            element={
-              isLoggedIn ? <LazyCalculatorPage /> : <LazyLoginPage />
-            }
+            element={isLoggedIn ? <LazyCalculatorPage /> : <LazyLoginPage />}
           />
 
           {/* Email Verification */}
-          <Route
-            path="verify-email"
-            element={<VerifyEmailPage />}
-          />
+          <Route path="verify-email" element={<VerifyEmailPage />} />
 
           {/* Private Routes */}
           <Route
             path="calculator"
-            element={<PrivateRoute component={<LazyCalculatorPage />} redirectTo="/verify-email" />}
+            element={
+              <PrivateRoute
+                component={<LazyCalculatorPage />}
+                redirectTo="/verify-email"
+              />
+            }
           />
 
           <Route
             path="diary"
-            element={<PrivateRoute component={<LazyDiaryPage />} redirectTo="/verify-email" />}
+            element={
+              <PrivateRoute
+                component={<LazyDiaryPage />}
+                redirectTo="/verify-email"
+              />
+            }
           />
 
           {/* Catch-All */}

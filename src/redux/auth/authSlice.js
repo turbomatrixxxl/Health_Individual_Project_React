@@ -1,5 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { logIn, register, logOut, refreshUser, resendVerificationEmail } from "./operationsAuth";
+import {
+  logIn,
+  register,
+  logOut,
+  refreshUser,
+  resendVerificationEmail,
+} from "./operationsAuth";
 
 const initialState = {
   user: null,
@@ -40,7 +46,6 @@ const handleRejected = (state, action) => {
   state.isRefreshing = false;
 };
 
-
 const authSlice = createSlice({
   name: "auth",
   initialState: initialState,
@@ -78,20 +83,19 @@ const authSlice = createSlice({
           state.isLoggedOut = false;
         }
 
-        state.isRegistered = true
+        state.isRegistered = true;
         state.isLoading = false;
         state.error = null;
       })
       .addCase(register.rejected, handleRejected)
 
-
       // Log Out
       .addCase(logOut.pending, handlePending)
       .addCase(logOut.fulfilled, (state) => {
-        const token = JSON.parse(localStorage.getItem("token"))
+        const token = JSON.parse(localStorage.getItem("token"));
 
         if (token) {
-          localStorage.setItem("token", null)
+          localStorage.setItem("token", null);
         }
 
         if (!token || token === null) {
@@ -109,7 +113,7 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.isRegistered = false;
-        state.isLoggedOut = true
+        state.isLoggedOut = true;
       })
       .addCase(logOut.rejected, handleRejected)
 
@@ -122,15 +126,14 @@ const authSlice = createSlice({
         state.user = payload.data;
         // console.log(state.user);
 
-
         if (payload.verify === false) {
           // If not verified, ensure user is not logged in
           state.token = null;
           state.isLoggedIn = false;
-          state.isLoggedOut = true
+          state.isLoggedOut = true;
         } else {
           state.isLoggedIn = true;
-          state.isLoggedOut = false
+          state.isLoggedOut = false;
         }
 
         state.isRefreshing = false;
@@ -157,4 +160,3 @@ const authSlice = createSlice({
 });
 
 export const authReducer = authSlice.reducer;
-

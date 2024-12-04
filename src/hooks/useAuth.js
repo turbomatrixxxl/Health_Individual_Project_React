@@ -22,8 +22,6 @@ export const useAuth = () => {
   const emailResendStatus = useSelector(selectIsemailResendStatus);
   const isLoggedOut = useSelector(selectIsLoggedOut);
 
-
-
   return {
     tokenAuth,
     isLoggedIn,

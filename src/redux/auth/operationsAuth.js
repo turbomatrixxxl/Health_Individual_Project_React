@@ -27,7 +27,6 @@ export const logIn = createAsyncThunk(
       const { token, user } = response.data;
       // console.log(user);
 
-
       if (user.verify === false) {
         localStorage.removeItem("token");
         // User is not verified; don't set the auth token
@@ -43,7 +42,6 @@ export const logIn = createAsyncThunk(
     }
   }
 );
-
 
 // Thunk for registering
 export const register = createAsyncThunk(
@@ -68,7 +66,6 @@ export const register = createAsyncThunk(
     }
   }
 );
-
 
 export const logOut = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
   try {
@@ -122,6 +119,3 @@ export const resendVerificationEmail = createAsyncThunk(
     }
   }
 );
-
-
-

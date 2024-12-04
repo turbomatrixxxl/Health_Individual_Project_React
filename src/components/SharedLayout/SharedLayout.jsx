@@ -12,12 +12,11 @@ import "react-toastify/dist/ReactToastify.css";
 
 import clsx from "clsx";
 
-import styles from './SharedLayout.module.css';
-
+import styles from "./SharedLayout.module.css";
 
 function SharedLayout() {
   const { isLoggedIn, isLoggedOut, isRegistered } = useAuth();
-  const { message } = usePrivate()
+  const { message } = usePrivate();
 
   const [toastShown, setToastShown] = useState(false);
   const [logoutShown, setLogoutShown] = useState(false);
@@ -67,12 +66,14 @@ function SharedLayout() {
   //   isRegistered: isRegistered,
   // });
 
-
-
   return (
     <div className={styles.cont}>
       <ToastContainer position="top-center" autoClose={5000} />
-      <div className={isLoggedIn ? styles.content : clsx(styles.content, styles.notLoggedIn)}>
+      <div
+        className={
+          isLoggedIn ? styles.content : clsx(styles.content, styles.notLoggedIn)
+        }
+      >
         <Header />
         <main className={styles.main}>
           <Outlet />
@@ -80,7 +81,6 @@ function SharedLayout() {
       </div>
       <Footer />
     </div>
-
   );
 }
 

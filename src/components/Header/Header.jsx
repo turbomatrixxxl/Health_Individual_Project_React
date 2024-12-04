@@ -1,8 +1,6 @@
 import React from "react";
 import { useMediaQuery } from "react-responsive";
 
-
-
 import Logo from "../Logo/Logo";
 import AuthLinks from "../AuthLinks/AuthLinks";
 import NavLinks from "../NavLinks/NavLinks";
@@ -13,7 +11,7 @@ import clsx from "clsx";
 import UserLogout from "../UserLogout/UserLogout";
 import NavModal from "../NavModal/NavModal";
 
-import slimMomImage from '../../images/Slim Mom.jpg'
+import slimMomImage from "../../images/Slim Mom.jpg";
 
 import styles from "./Header.module.css";
 
@@ -32,21 +30,28 @@ function Header() {
 
   return (
     <>
-      <header className={clsx(styles.header, isLoggedIn && styles.loggedHeader)}>
-        <div className={clsx(styles.leftCont, !isLoggedIn && styles.loggedLeft)}>
+      <header
+        className={clsx(styles.header, isLoggedIn && styles.loggedHeader)}
+      >
+        <div
+          className={clsx(styles.leftCont, !isLoggedIn && styles.loggedLeft)}
+        >
           <Logo />
-          {isLoggedIn && isMobile && <img className={styles.slimMom} src={slimMomImage} alt="Slim" />}
+          {isLoggedIn && isMobile && (
+            <img className={styles.slimMom} src={slimMomImage} alt="Slim" />
+          )}
           {!isLoggedIn && <AuthLinks />}
           {isDesktop && isLoggedIn && <NavLinks />}
         </div>
         <div className={styles.rightCont}>
           {!isMobile && !isDesktop && <UserLogout />}
-          {(isMobile || isTablet) && !isDesktop && isLoggedIn &&
-            <NavModal />}
+          {(isMobile || isTablet) && !isDesktop && isLoggedIn && <NavModal />}
         </div>
-        {isLoggedIn && isDesktop && <div className={styles.rightDesktopCont}>
-          <UserLogout />
-        </div>}
+        {isLoggedIn && isDesktop && (
+          <div className={styles.rightDesktopCont}>
+            <UserLogout />
+          </div>
+        )}
       </header>
       {isMobile && <UserLogout />}
     </>

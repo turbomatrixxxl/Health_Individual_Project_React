@@ -5,14 +5,14 @@ const selectPublicCalculatorState = (state) => state.publicCalculatorSlice;
 
 // Memoized selector for formData
 export const selectFormData = createSelector(
-    [selectPublicCalculatorState],
-    (publicCalculatorSlice) => ({
-        height: publicCalculatorSlice.height,
-        age: publicCalculatorSlice.age,
-        currentWeight: publicCalculatorSlice.currentWeight,
-        desiredWeight: publicCalculatorSlice.desiredWeight,
-        bloodGroupIndex: publicCalculatorSlice.bloodGroupIndex,
-    })
+  [selectPublicCalculatorState],
+  (publicCalculatorSlice) => ({
+    height: publicCalculatorSlice.height,
+    age: publicCalculatorSlice.age,
+    currentWeight: publicCalculatorSlice.currentWeight,
+    desiredWeight: publicCalculatorSlice.desiredWeight,
+    bloodGroupIndex: publicCalculatorSlice.bloodGroupIndex,
+  })
 );
 
 export const selectResult = (state) => state.publicCalculatorSlice.result;

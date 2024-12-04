@@ -1,3 +1,3 @@
 import CalculatorPage from "./CalculatorPage";
 
-export default CalculatorPage
+export default CalculatorPage;

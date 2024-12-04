@@ -14,119 +14,122 @@ import Logo from "../Logo/Logo";
 import Button from "../commonComponents/Button";
 
 const breakpoints = {
-    mobile: "(max-width: 767px)",
-    tablet: "(min-width:768px)",
+  mobile: "(max-width: 767px)",
+  tablet: "(min-width:768px)",
 };
 
 export default function UserLogout() {
-    const { isLoggedIn, user } = useAuth();
-    const [isLogoutModalVisible, toggleIsLogoutModalVisible] = useToggle(false);
-    const modalRef = useRef();
-    // console.log(user);
+  const { isLoggedIn, user } = useAuth();
+  const [isLogoutModalVisible, toggleIsLogoutModalVisible] = useToggle(false);
+  const modalRef = useRef();
+  // console.log(user);
 
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch();
+  const handleLogout = () => {
+    dispatch(logOut());
+  };
 
-    const handleLogout = () => {
-        dispatch(logOut());
+  useEffect(() => {
+    if (isLogoutModalVisible) {
+      document.body.classList.add(styles.noScroll);
+    } else {
+      document.body.classList.remove(styles.noScroll);
+    }
+
+    const handleEscapeKey = (event) => {
+      if (event.key === "Escape") toggleIsLogoutModalVisible();
     };
 
-    useEffect(() => {
-        if (isLogoutModalVisible) {
-            document.body.classList.add(styles.noScroll);
-        } else {
-            document.body.classList.remove(styles.noScroll);
-        }
+    document.addEventListener("keydown", handleEscapeKey);
 
-        const handleEscapeKey = (event) => {
-            if (event.key === "Escape") toggleIsLogoutModalVisible();
-        };
-
-        document.addEventListener("keydown", handleEscapeKey);
-
-        return () => {
-            document.body.classList.remove(styles.noScroll);
-            document.removeEventListener("keydown", handleEscapeKey);
-        };
-    }, [isLogoutModalVisible, toggleIsLogoutModalVisible]);
-
-    const closeOnClickOutside = (event) => {
-        if (event.target !== event.currentTarget) {
-            toggleIsLogoutModalVisible();
-        }
+    return () => {
+      document.body.classList.remove(styles.noScroll);
+      document.removeEventListener("keydown", handleEscapeKey);
     };
+  }, [isLogoutModalVisible, toggleIsLogoutModalVisible]);
 
-    const isMobile = useMediaQuery({ query: breakpoints.mobile });
-    const isTablet = useMediaQuery({ query: breakpoints.tablet });
+  const closeOnClickOutside = (event) => {
+    if (event.target !== event.currentTarget) {
+      toggleIsLogoutModalVisible();
+    }
+  };
 
-    if (!isLoggedIn) { return null };
+  const isMobile = useMediaQuery({ query: breakpoints.mobile });
+  const isTablet = useMediaQuery({ query: breakpoints.tablet });
 
-    return (
-        <>
-            <div className={styles.cont}>
-                <p>{user ? user.username ?? user.name : "User"}</p>
-                <span>|</span>
-                <LogoutButton handleLogoutModal={toggleIsLogoutModalVisible} />
-            </div>
+  if (!isLoggedIn) {
+    return null;
+  }
 
-            {isLogoutModalVisible && (
-                <div
-                    ref={modalRef}
-                    className={styles.modalOverlay}
-                    onClick={closeOnClickOutside}
-                >
-                    <div className={styles.modalContent}>
-                        <Modal
-                            closeButton={styles.closeButton}
-                            handleModalClose={toggleIsLogoutModalVisible}
-                            isModalVisible={isLogoutModalVisible}
-                        >
-                            {isMobile && (
-                                <header className={styles.modalHeader}>
-                                    <Logo className={styles.logoHeaderContainer} />
-                                    <div className={styles.userContainer}>
-                                        <p>{user ? user.username ?? user.name : "User"}</p>
-                                        <span>|</span>
-                                        <LogoutButton handleLogoutModal={toggleIsLogoutModalVisible} />
-                                    </div>
-                                </header>
-                            )}
-                            <div className={styles.modalLogoutActionCenter}>
-                                {isTablet && (
-                                    <div className={styles.logo}>
-                                        <h1>Health</h1>
-                                        <Logo className={styles.logoHeaderContainer} />
-                                    </div>
-                                )}
-                                <p className={styles.question}>
-                                    Are you sure you want to log out?
-                                </p>
-                                <div className={styles.modalButtonsContainer}>
-                                    {/* Link to "/" on Logout */}
-                                    <Link className={styles.link} to="/">
-                                        <Button
-                                            handleClick={() => {
-                                                toggleIsLogoutModalVisible();
-                                                handleLogout();
-                                            }}
-                                            type="button"
-                                            variant="colored"
-                                        >
-                                            Logout
-                                        </Button>
-                                    </Link>
-                                    <Button
-                                        handleClick={toggleIsLogoutModalVisible}
-                                        type="button"
-                                    >
-                                        Cancel
-                                    </Button>
-                                </div>
-                            </div>
-                        </Modal>
-                    </div>
+  return (
+    <>
+      <div className={styles.cont}>
+        <p>{user ? user.username ?? user.name : "User"}</p>
+        <span>|</span>
+        <LogoutButton handleLogoutModal={toggleIsLogoutModalVisible} />
+      </div>
+
+      {isLogoutModalVisible && (
+        <div
+          ref={modalRef}
+          className={styles.modalOverlay}
+          onClick={closeOnClickOutside}
+        >
+          <div className={styles.modalContent}>
+            <Modal
+              closeButton={styles.closeButton}
+              handleModalClose={toggleIsLogoutModalVisible}
+              isModalVisible={isLogoutModalVisible}
+            >
+              {isMobile && (
+                <header className={styles.modalHeader}>
+                  <Logo className={styles.logoHeaderContainer} />
+                  <div className={styles.userContainer}>
+                    <p>{user ? user.username ?? user.name : "User"}</p>
+                    <span>|</span>
+                    <LogoutButton
+                      handleLogoutModal={toggleIsLogoutModalVisible}
+                    />
+                  </div>
+                </header>
+              )}
+              <div className={styles.modalLogoutActionCenter}>
+                {isTablet && (
+                  <div className={styles.logo}>
+                    <h1>Health</h1>
+                    <Logo className={styles.logoHeaderContainer} />
+                  </div>
+                )}
+                <p className={styles.question}>
+                  Are you sure you want to log out?
+                </p>
+                <div className={styles.modalButtonsContainer}>
+                  {/* Link to "/" on Logout */}
+                  <Link className={styles.link} to="/">
+                    <Button
+                      handleClick={() => {
+                        toggleIsLogoutModalVisible();
+                        handleLogout();
+                      }}
+                      type="button"
+                      variant="colored"
+                    >
+                      Logout
+                    </Button>
+                  </Link>
+                  <Button
+                    handleClick={toggleIsLogoutModalVisible}
+                    type="button"
+                  >
+                    Cancel
+                  </Button>
                 </div>
-            )}
-        </>
-    );
+              </div>
+            </Modal>
+          </div>
+        </div>
+      )}
+    </>
+  );
 }

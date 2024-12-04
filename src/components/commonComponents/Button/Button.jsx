@@ -1,13 +1,13 @@
-import clsx from 'clsx';
-import React from 'react';
-import PropTypes from 'prop-types';
+import clsx from "clsx";
+import React from "react";
+import PropTypes from "prop-types";
 
-import styles from './Button.module.css';
+import styles from "./Button.module.css";
 
 export default function Button({
   type,
   children,
-  variant = '',
+  variant = "",
   handleClick,
   disabled,
   className,
@@ -19,9 +19,9 @@ export default function Button({
       type={type}
       className={clsx(
         styles.button,
-        variant === 'colored'
+        variant === "colored"
           ? styles.coloredButton
-          : variant === 'plusButton'
+          : variant === "plusButton"
           ? styles.plusButton
           : styles.whiteButton,
         className
