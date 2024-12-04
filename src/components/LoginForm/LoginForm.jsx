@@ -28,7 +28,7 @@ function LoginForm() {
     validateLogin
   );
 
-  const { user, isLoggedIn } = useAuth()
+  const { user, isLoggedIn } = useAuth();
 
   const { touched, handleBlur } = useFormTouched(fields);
 
@@ -45,8 +45,7 @@ function LoginForm() {
     if (!validateFields()) return;
 
     try {
-      await dispatch(logIn(fields))
-        .unwrap()
+      await dispatch(logIn(fields)).unwrap();
     } catch (error) {
       setFields((prevFields) => ({
         ...prevFields,
@@ -134,28 +133,30 @@ function LoginForm() {
           <Button variant="colored" type="submit">
             Log in
           </Button>
-
           {errorMessage && <p className={styles.error}>{errorMessage}</p>}
-
-          <Button type="button">
-            <Link to="/register" className={styles.navLink}>
+          <Link to="/register" className={styles.navLink}>
+            <Button className={styles.button} type="button">
               Register
-            </Link>{" "}
-          </Button>
-
-
-
+            </Button>
+          </Link>{" "}
           {errorMessage && <p className={styles.error}>{errorMessage}</p>}
-
         </div>
-        {(user !== null && !isLoggedIn) && ((<div className={styles.errorCont}>
-          <p className={styles.error}>It seems that your email is not verified! Please click the Verify button to be redirected to verify email page !
-          </p><Button>
-            <Link to="/verify-email" className={clsx(styles.navLink, styles.link)}>
-              Verify
-            </Link>
-          </Button>
-        </div>))}
+        {user !== null && !isLoggedIn && (
+          <div className={styles.errorCont}>
+            <p className={styles.error}>
+              It seems that your email is not verified! Please click the Verify
+              button to be redirected to verify email page !
+            </p>
+            <Button>
+              <Link
+                to="/verify-email"
+                className={clsx(styles.navLink, styles.link)}
+              >
+                Verify
+              </Link>
+            </Button>
+          </div>
+        )}
       </form>
     </>
   );

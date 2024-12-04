@@ -72,6 +72,10 @@
     margin: 0;
 }
 
+.emailLink {
+    text-decoration: none;
+}
+
 .link {
     color: blue;
     font-family: Verdana;

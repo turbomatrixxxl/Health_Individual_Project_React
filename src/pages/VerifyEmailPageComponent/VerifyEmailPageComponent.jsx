@@ -63,6 +63,7 @@ const VerifyEmailPage = () => {
                 We sent a verification link to your email: <strong className={styles.strong}>{email}</strong>
             </p>
             <a
+                className={styles.emailLink}
                 href={getEmailProviderUrl(user?.email)}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -88,7 +89,7 @@ const VerifyEmailPage = () => {
                 <p className={styles.infoText}>
                     If you've already verified your email, you can go to the
                 </p>
-                <Link to="/login">
+                <Link className={styles.link} to="/login">
                     <Button>Login page</Button>
                 </Link>
                 <p className={styles.infoText}>to sign in.</p>

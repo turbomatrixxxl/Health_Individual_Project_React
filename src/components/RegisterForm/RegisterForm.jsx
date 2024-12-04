@@ -219,8 +219,8 @@ function RegisterForm() {
                 passwordStrength < 3
                   ? "red"
                   : passwordStrength < 4
-                    ? "orange"
-                    : "green",
+                  ? "orange"
+                  : "green",
             }}
           ></div>
         </div>
@@ -230,12 +230,9 @@ function RegisterForm() {
         <Button variant="colored" type="submit">
           Register
         </Button>
-
         {errorMessage && <p className={styles.error}>{errorMessage}</p>}
         <Link to="/login" className={styles.navLink}>
-          <Button type="button">
-            Log in
-          </Button>
+          <Button type="button">Log in</Button>
         </Link>{" "}
         <ToastContainer position="top-center" autoClose={5000} />
       </div>

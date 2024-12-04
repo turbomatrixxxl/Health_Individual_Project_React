@@ -86,17 +86,6 @@
   justify-content: center;
 }
 
-.navLink {
-  color: #623f8b;
-  text-align: center;
-  text-decoration: none;
-}
-
-.navLink:hover {
-  text-decoration: underline;
-  color: white;
-}
-
 .passwordStrengthBar {
   width: 100%;
   height: 3px;
