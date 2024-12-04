@@ -1,50 +1,47 @@
-@import '../../styles/variables.css';
+@import "../../styles/variables.css";
 
 .container {
-    display: flex;
-    margin-left: auto;
+  display: flex;
+  margin-left: auto;
 }
 
-.container>span {
-    color: var(--Gray-5);
-    display: none;
-    width: 2px;
-    height: 32px;
-    margin-top: auto;
+.container > span {
+  color: var(--Gray-5);
+  display: none;
+  width: 2px;
+  height: 32px;
+  margin-top: auto;
 }
 
 .nav {
-    display: flex;
-    gap: 14px;
+  display: flex;
+  gap: 14px;
 }
-
-
 
 .auth:not(.active):hover {
-    color: var(--brand-color);
+  color: var(--brand-color);
 }
 
-
 @media screen and (width >=768px) {
-    .nav {
-        gap: 24px;
-    }
+  .nav {
+    gap: 24px;
+  }
 }
 
 @media screen and (width >=1024px) {
-    .container {
-        align-items: flex-end;
-        gap: 20px;
-        margin: 0;
-    }
+  .container {
+    align-items: flex-end;
+    gap: 20px;
+    margin: 0;
+  }
 
-    .nav {
-        margin-bottom: 4px;
-    }
+  .nav {
+    margin-bottom: 4px;
+  }
 
-    .container span {
-        display: flex;
-        align-items: flex-end;
-        font-size: 32px;
-    }
+  .container span {
+    display: flex;
+    align-items: flex-end;
+    font-size: 32px;
+  }
 }

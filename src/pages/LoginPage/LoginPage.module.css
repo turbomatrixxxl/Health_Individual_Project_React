@@ -1,35 +1,35 @@
-@import '../../styles/variables.css';
+@import "../../styles/variables.css";
 
 .section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 55px;
-    padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 55px;
+  padding: 40px 20px;
 }
 
 .title {
-    color: var(--brand-color);
-    display: flex;
-    font-family: Verdana;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 700;
-    justify-content: center;
-    line-height: normal;
-    letter-spacing: 0.56px;
-    text-transform: uppercase;
-    margin: 0;
+  color: var(--brand-color);
+  display: flex;
+  font-family: Verdana;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  justify-content: center;
+  line-height: normal;
+  letter-spacing: 0.56px;
+  text-transform: uppercase;
+  margin: 0;
 }
 
 @media screen and (width >=768px) {
-    .section {
-        padding: 20px 32px;
-    }
+  .section {
+    padding: 20px 32px;
+  }
 
-    .title {
-        justify-content: flex-start;
-    }
+  .title {
+    justify-content: flex-start;
+  }
 }
 
 /* @media screen and (width >=1024px) {

@@ -1,20 +1,20 @@
 @import "../../styles/variables.css";
 
 .insideContent {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 .leftCont {
-    align-items: center;
-    display: flex;
-    gap: 8px;
+  align-items: center;
+  display: flex;
+  gap: 8px;
 }
 
 .rightCont {
-    align-items: center;
-    display: flex;
-    gap: 8px;
+  align-items: center;
+  display: flex;
+  gap: 8px;
 }
 
 /* 
@@ -41,46 +41,45 @@
 } */
 
 .modalLogoutActionCenter {
-    align-items: center;
-    background: #264061;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    height: 100%;
-    padding: 60px;
-    width: 100%;
-
+  align-items: center;
+  background: #264061;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  height: 100%;
+  padding: 60px;
+  width: 100%;
 }
 
 .closeButton {
-    display: none;
+  display: none;
 }
 
 .modalHeader {
-    z-index: 10000;
-    height: 60px;
-    background: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 auto;
-    padding: 12px 20px 11.51px 20px;
-    width: -webkit-fill-available;
+  z-index: 10000;
+  height: 60px;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 12px 20px 11.51px 20px;
+  width: -webkit-fill-available;
 }
 
 .logoHeaderContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .modalButtonsContainer {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    justify-content: center;
-    width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
 }
 
 /* .link {
@@ -101,7 +100,7 @@
 } */
 
 @media screen and (width >=768px) {
-    .modalLogoutActionCenter {
-        padding: 100px;
-    }
+  .modalLogoutActionCenter {
+    padding: 100px;
+  }
 }

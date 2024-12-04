@@ -1,42 +1,43 @@
 .cont {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
 }
 
 .content {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .main {
-    flex-grow: 1;
-    background: transparent;
+  flex-grow: 1;
+  background: transparent;
 }
 
-
 @media screen and (width >=768px) {
-    .notLoggedIn {
-        background: url('../../images/Slim-Mom-Tablet.png') white 50% / cover no-repeat;
-        border: none;
-        outline: none;
-        display: flex !important;
-        flex-shrink: 0;
-        background-position: bottom right;
-        background-size: 60% 85%;
-        /* Width and height as percentages of the container */
+  .notLoggedIn {
+    background: url("../../images/Slim-Mom-Tablet.png") white 50% / cover
+      no-repeat;
+    border: none;
+    outline: none;
+    display: flex !important;
+    flex-shrink: 0;
+    background-position: bottom right;
+    background-size: 60% 85%;
+    /* Width and height as percentages of the container */
 
-        /* z-index: -1; */
-        /* Places the background behind other content */
-    }
+    /* z-index: -1; */
+    /* Places the background behind other content */
+  }
 }
 
 @media screen and (width >=1024px) {
-    .notLoggedIn {
-        background: url('../../images/Slim-Mom-Desktop.png') white 50% / cover no-repeat;
-        background-position: bottom right;
-        background-size: 60% 100%;
-    }
+  .notLoggedIn {
+    background: url("../../images/Slim-Mom-Desktop.png") white 50% / cover
+      no-repeat;
+    background-position: bottom right;
+    background-size: 60% 100%;
+  }
 }

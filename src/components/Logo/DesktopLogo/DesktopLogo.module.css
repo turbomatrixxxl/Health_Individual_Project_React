@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  background: url('../../../images/logo-image.jpg') lightgray 50% / cover
+  background: url("../../../images/logo-image.jpg") lightgray 50% / cover
     no-repeat;
   width: 46px;
   height: 44px;
