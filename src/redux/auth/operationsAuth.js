@@ -3,7 +3,8 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 // Set the base URL for axios
-axios.defaults.baseURL = "http://localhost:5000";
+// axios.defaults.baseURL = "http://localhost:5000";
+axios.defaults.baseURL = "https://health-individual-project-node.onrender.com";
 
 // Function to set the Authorization header and store the token in localStorage
 const setAuthHeader = (token) => {

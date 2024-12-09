@@ -133,7 +133,7 @@ function LoginForm() {
           <Button variant="colored" type="submit">
             Log in
           </Button>
-          {errorMessage && <p className={styles.error}>{errorMessage}</p>}
+          {/* {errorMessage && <p className={styles.error}>{errorMessage}</p>} */}
           <Link to="/register" className={styles.navLink}>
             <Button className={styles.button} type="button">
               Register
