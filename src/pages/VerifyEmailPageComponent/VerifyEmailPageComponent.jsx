@@ -23,6 +23,9 @@ const VerifyEmailPage = () => {
       navigate("/login");
       return;
     }
+
+    // console.log(user);
+
     dispatch(resendVerificationEmail(user.email));
   };
 
@@ -73,7 +76,9 @@ const VerifyEmailPage = () => {
       </a>
       <Button
         className={styles.button}
-        onClick={handleResendVerificationEmail}
+        handleClick={() => {
+          handleResendVerificationEmail();
+        }}
         type="button"
         variant="colored"
       >

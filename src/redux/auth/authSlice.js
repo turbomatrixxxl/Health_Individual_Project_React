@@ -78,6 +78,7 @@ const authSlice = createSlice({
       .addCase(register.pending, handlePending)
       .addCase(register.fulfilled, (state, { payload }) => {
         state.user = payload.user;
+        // console.log(payload.user);
 
         if (state.user.verify) {
           state.isLoggedOut = false;
