@@ -26,7 +26,7 @@ const VerifyEmailPage = () => {
 
     // console.log(user);
 
-    dispatch(resendVerificationEmail(user.email));
+    dispatch(resendVerificationEmail(user?.email));
   };
 
   useEffect(() => {
@@ -41,7 +41,7 @@ const VerifyEmailPage = () => {
       return "https://mail.google.com";
     }
 
-    const domain = email.split("@")[1];
+    const domain = email?.split("@")[1];
     switch (domain) {
       case "gmail.com":
         return `https://mail.google.com/mail/u/0/#inbox`;
