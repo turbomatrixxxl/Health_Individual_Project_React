@@ -46,7 +46,9 @@ function App() {
           {/* Public Routes */}
           <Route
             index
-            element={isLoggedIn ? <LazyCalculatorPage /> : <LazyHomePage />}
+            element={
+              isLoggedIn === true ? <LazyCalculatorPage /> : <LazyHomePage />
+            }
           />
 
           {/* Login & Registration Routes */}
@@ -62,7 +64,9 @@ function App() {
 
           <Route
             path="login"
-            element={isLoggedIn ? <LazyCalculatorPage /> : <LazyLoginPage />}
+            element={
+              isLoggedIn === true ? <LazyCalculatorPage /> : <LazyLoginPage />
+            }
           />
 
           {/* Email Verification */}
