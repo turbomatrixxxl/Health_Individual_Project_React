@@ -23,12 +23,21 @@ const bloodTypeOptions = [
 
 export default function WeightLossForm({ onSubmit, handleClick }) {
   const { formData = {}, isLoading, dispatch } = usePublic();
+
+  const { isLoggedIn, user } = useAuth();
+
+  const userHeight = user?.height;
+  const userAge = user?.age;
+  const userWeight = user?.weight;
+  const userDesiredWeightt = user?.desiredWeight;
+  const userBloodType = user?.bloodType;
+  // console.log(userBloodType);
+
   const {
     privateFormData = {},
     privateLoading,
     privateDispatch,
   } = usePrivate();
-  const { isLoggedIn } = useAuth();
   // console.log(isLoggedIn);
   // console.log(privateLoading);
   // console.log(privateFormData);
@@ -36,11 +45,11 @@ export default function WeightLossForm({ onSubmit, handleClick }) {
   // Initialize form state with default values
   useEffect(() => {
     const defaultValues = {
-      height: "",
-      age: "",
-      currentWeight: "",
-      desiredWeight: "",
-      bloodGroupIndex: "",
+      height: isLoggedIn ? userHeight : "",
+      age: isLoggedIn ? userAge : "",
+      currentWeight: isLoggedIn ? userWeight : "",
+      desiredWeight: isLoggedIn ? userDesiredWeightt : "",
+      bloodGroupIndex: isLoggedIn ? userBloodType : "",
     };
 
     const setter = isLoggedIn ? privateDispatch : dispatch;
@@ -54,7 +63,18 @@ export default function WeightLossForm({ onSubmit, handleClick }) {
         setter(setAction({ name: key, value }));
       }
     });
-  }, [dispatch, privateDispatch, formData, privateFormData, isLoggedIn]);
+  }, [
+    dispatch,
+    privateDispatch,
+    formData,
+    privateFormData,
+    isLoggedIn,
+    userHeight,
+    userAge,
+    userWeight,
+    userDesiredWeightt,
+    userBloodType,
+  ]);
 
   // console.log(formData);
 
@@ -93,9 +113,15 @@ export default function WeightLossForm({ onSubmit, handleClick }) {
     ? formData.desiredWeight
     : privateFormData.desiredWeight;
   const bloodGroupIndex = !isLoggedIn
-    ? formData.bloodGroupIndex
-    : privateFormData.bloodGroupIndex;
+    ? formData?.bloodGroupIndex
+    : privateFormData?.bloodGroupIndex;
   const loading = !isLoggedIn ? isLoading : privateLoading;
+
+  // console.log(
+  //   "privateFormData?.bloodGroupIndex",
+  //   privateFormData?.bloodGroupIndex
+  // );
+  // console.log("bloodGroupIndex", bloodGroupIndex);
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
@@ -150,8 +176,9 @@ export default function WeightLossForm({ onSubmit, handleClick }) {
               placeholder="Blood type*"
               name="bloodType"
               value={
-                bloodTypeOptions.find((opt) => opt.value === bloodGroupIndex)
-                  ?.label || ""
+                bloodTypeOptions.find(
+                  (opt) => opt.value === String(bloodGroupIndex)
+                )?.label || ""
               }
               handleChange={handleChange}
               required
@@ -167,7 +194,7 @@ export default function WeightLossForm({ onSubmit, handleClick }) {
                     id={`bloodType-${option.value}`}
                     name="bloodType"
                     value={option.value}
-                    checked={bloodGroupIndex === option.value}
+                    checked={String(bloodGroupIndex) === option.value}
                     onChange={() => handleRadioChange(option.value)}
                     className={styles.radioInput}
                   />

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute";
+import RestrictedLoginRoute from "./components/RestrictedLoginRoute/RestrictedLoginRoute.jsx";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import SharedLayout from "./components/SharedLayout/SharedLayout";
 import { useDispatch } from "react-redux";
@@ -53,7 +54,7 @@ function App() {
 
           {/* Login & Registration Routes */}
           <Route
-            path="register"
+            path="/register"
             element={
               <RestrictedRoute
                 redirectTo={"verify-email"}
@@ -63,18 +64,21 @@ function App() {
           />
 
           <Route
-            path="login"
+            path="/login"
             element={
-              isLoggedIn === true ? <LazyCalculatorPage /> : <LazyLoginPage />
+              <RestrictedLoginRoute
+                redirectTo={"/calculator"}
+                component={<LazyLoginPage />}
+              />
             }
           />
 
           {/* Email Verification */}
-          <Route path="verify-email" element={<VerifyEmailPage />} />
+          <Route path="/verify-email" element={<VerifyEmailPage />} />
 
           {/* Private Routes */}
           <Route
-            path="calculator"
+            path="/calculator"
             element={
               <PrivateRoute
                 component={<LazyCalculatorPage />}
@@ -84,7 +88,7 @@ function App() {
           />
 
           <Route
-            path="diary"
+            path="/diary"
             element={
               <PrivateRoute
                 component={<LazyDiaryPage />}
